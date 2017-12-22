@@ -1,0 +1,382 @@
+<%= form_for(order) do |f| %>
+  <% if order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :RowVersion %>
+    <%= f.text_field :RowVersion %>
+  </div>
+
+  <div class="field">
+    <%= f.label :StoreID %>
+    <%= f.text_field :StoreID %>
+  </div>
+
+  <div class="field">
+    <%= f.label :CustomerID %>
+    <%= f.text_field :CustomerID %>
+  </div>
+
+  <div class="field">
+    <%= f.label :OrderNumber %>
+    <%= f.text_field :OrderNumber %>
+  </div>
+
+  <div class="field">
+    <%= f.label :OrderNumberComplete %>
+    <%= f.text_field :OrderNumberComplete %>
+  </div>
+
+  <div class="field">
+    <%= f.label :OrderDate %>
+    <%= f.datetime_select :OrderDate %>
+  </div>
+
+  <div class="field">
+    <%= f.label :OrderTotal %>
+    <%= f.text_field :OrderTotal %>
+  </div>
+
+  <div class="field">
+    <%= f.label :LocalStatus %>
+    <%= f.text_field :LocalStatus %>
+  </div>
+
+  <div class="field">
+    <%= f.label :IsManual %>
+    <%= f.check_box :IsManual %>
+  </div>
+
+  <div class="field">
+    <%= f.label :OnlineLastModified %>
+    <%= f.datetime_select :OnlineLastModified %>
+  </div>
+
+  <div class="field">
+    <%= f.label :OnlineCustomerID %>
+    <%= f.text_field :OnlineCustomerID %>
+  </div>
+
+  <div class="field">
+    <%= f.label :OnlineStatus %>
+    <%= f.text_field :OnlineStatus %>
+  </div>
+
+  <div class="field">
+    <%= f.label :OnlineStatusCode %>
+    <%= f.text_field :OnlineStatusCode %>
+  </div>
+
+  <div class="field">
+    <%= f.label :RequestedShipping %>
+    <%= f.text_field :RequestedShipping %>
+  </div>
+
+  <div class="field">
+    <%= f.label :BillFirstName %>
+    <%= f.text_field :BillFirstName %>
+  </div>
+
+  <div class="field">
+    <%= f.label :BillMiddleName %>
+    <%= f.text_field :BillMiddleName %>
+  </div>
+
+  <div class="field">
+    <%= f.label :BillLastName %>
+    <%= f.text_field :BillLastName %>
+  </div>
+
+  <div class="field">
+    <%= f.label :BillCompany %>
+    <%= f.text_field :BillCompany %>
+  </div>
+
+  <div class="field">
+    <%= f.label :BillStreet1 %>
+    <%= f.text_field :BillStreet1 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :BillStreet2 %>
+    <%= f.text_field :BillStreet2 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :BillStreet3 %>
+    <%= f.text_field :BillStreet3 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :BillCity %>
+    <%= f.text_field :BillCity %>
+  </div>
+
+  <div class="field">
+    <%= f.label :BillStateProvCode %>
+    <%= f.text_field :BillStateProvCode %>
+  </div>
+
+  <div class="field">
+    <%= f.label :BillPostalCode %>
+    <%= f.text_field :BillPostalCode %>
+  </div>
+
+  <div class="field">
+    <%= f.label :BillCountryCode %>
+    <%= f.text_field :BillCountryCode %>
+  </div>
+
+  <div class="field">
+    <%= f.label :BillPhone %>
+    <%= f.text_field :BillPhone %>
+  </div>
+
+  <div class="field">
+    <%= f.label :BillFax %>
+    <%= f.text_field :BillFax %>
+  </div>
+
+  <div class="field">
+    <%= f.label :BillEmail %>
+    <%= f.text_field :BillEmail %>
+  </div>
+
+  <div class="field">
+    <%= f.label :BillWebsite %>
+    <%= f.text_field :BillWebsite %>
+  </div>
+
+  <div class="field">
+    <%= f.label :BillAddressValidationSuggestionCount %>
+    <%= f.number_field :BillAddressValidationSuggestionCount %>
+  </div>
+
+  <div class="field">
+    <%= f.label :BillAddressValidationStatus %>
+    <%= f.number_field :BillAddressValidationStatus %>
+  </div>
+
+  <div class="field">
+    <%= f.label :BillAddressValidationError %>
+    <%= f.text_field :BillAddressValidationError %>
+  </div>
+
+  <div class="field">
+    <%= f.label :BillResidentialStatus %>
+    <%= f.number_field :BillResidentialStatus %>
+  </div>
+
+  <div class="field">
+    <%= f.label :BillPOBox %>
+    <%= f.number_field :BillPOBox %>
+  </div>
+
+  <div class="field">
+    <%= f.label :BillUSTerritory %>
+    <%= f.number_field :BillUSTerritory %>
+  </div>
+
+  <div class="field">
+    <%= f.label :BillMilitaryAddress %>
+    <%= f.number_field :BillMilitaryAddress %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ShipFirstName %>
+    <%= f.text_field :ShipFirstName %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ShipMiddleName %>
+    <%= f.text_field :ShipMiddleName %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ShipLastName %>
+    <%= f.text_field :ShipLastName %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ShipCompany %>
+    <%= f.text_field :ShipCompany %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ShipStreet1 %>
+    <%= f.text_field :ShipStreet1 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ShipStreet2 %>
+    <%= f.text_field :ShipStreet2 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ShipStreet3 %>
+    <%= f.text_field :ShipStreet3 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ShipCity %>
+    <%= f.text_field :ShipCity %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ShipStateProvCode %>
+    <%= f.text_field :ShipStateProvCode %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ShipPostalCode %>
+    <%= f.text_field :ShipPostalCode %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ShipCountryCode %>
+    <%= f.text_field :ShipCountryCode %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ShipPhone %>
+    <%= f.text_field :ShipPhone %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ShipFax %>
+    <%= f.text_field :ShipFax %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ShipEmail %>
+    <%= f.text_field :ShipEmail %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ShipWebsite %>
+    <%= f.text_field :ShipWebsite %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ShipAddressValidationSuggestionCount %>
+    <%= f.number_field :ShipAddressValidationSuggestionCount %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ShipAddressValidationStatus %>
+    <%= f.number_field :ShipAddressValidationStatus %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ShipAddressValidationError %>
+    <%= f.text_field :ShipAddressValidationError %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ShipResidentialStatus %>
+    <%= f.number_field :ShipResidentialStatus %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ShipPOBox %>
+    <%= f.number_field :ShipPOBox %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ShipUSTerritory %>
+    <%= f.number_field :ShipUSTerritory %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ShipMilitaryAddress %>
+    <%= f.number_field :ShipMilitaryAddress %>
+  </div>
+
+  <div class="field">
+    <%= f.label :RollupItemCount %>
+    <%= f.number_field :RollupItemCount %>
+  </div>
+
+  <div class="field">
+    <%= f.label :RollupItemName %>
+    <%= f.text_field :RollupItemName %>
+  </div>
+
+  <div class="field">
+    <%= f.label :RollupItemCode %>
+    <%= f.text_field :RollupItemCode %>
+  </div>
+
+  <div class="field">
+    <%= f.label :RollupItemSKU %>
+    <%= f.text_field :RollupItemSKU %>
+  </div>
+
+  <div class="field">
+    <%= f.label :RollupItemLocation %>
+    <%= f.text_field :RollupItemLocation %>
+  </div>
+
+  <div class="field">
+    <%= f.label :RollupItemQuantity %>
+    <%= f.text_field :RollupItemQuantity %>
+  </div>
+
+  <div class="field">
+    <%= f.label :RollupItemTotalWeight %>
+    <%= f.text_field :RollupItemTotalWeight %>
+  </div>
+
+  <div class="field">
+    <%= f.label :RollupNoteCount %>
+    <%= f.number_field :RollupNoteCount %>
+  </div>
+
+  <div class="field">
+    <%= f.label :BillNameParseStatus %>
+    <%= f.number_field :BillNameParseStatus %>
+  </div>
+
+  <div class="field">
+    <%= f.label :BillUnparsedName %>
+    <%= f.text_field :BillUnparsedName %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ShipNameParseStatus %>
+    <%= f.number_field :ShipNameParseStatus %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ShipUnparsedName %>
+    <%= f.text_field :ShipUnparsedName %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ShipSenseHashKey %>
+    <%= f.text_field :ShipSenseHashKey %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ShipSenseRecognitionStatus %>
+    <%= f.number_field :ShipSenseRecognitionStatus %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ShipAddressType %>
+    <%= f.number_field :ShipAddressType %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

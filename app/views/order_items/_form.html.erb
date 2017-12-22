@@ -1,0 +1,107 @@
+<%= form_for(order_item) do |f| %>
+  <% if order_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(order_item.errors.count, "error") %> prohibited this order_item from being saved:</h2>
+
+      <ul>
+      <% order_item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :RowVersion %>
+    <%= f.text_field :RowVersion %>
+  </div>
+
+  <div class="field">
+    <%= f.label :OrderID %>
+    <%= f.text_field :OrderID %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Name %>
+    <%= f.text_field :Name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Code %>
+    <%= f.text_field :Code %>
+  </div>
+
+  <div class="field">
+    <%= f.label :SKU %>
+    <%= f.text_field :SKU %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ISBN %>
+    <%= f.text_field :ISBN %>
+  </div>
+
+  <div class="field">
+    <%= f.label :UPC %>
+    <%= f.text_field :UPC %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Description %>
+    <%= f.text_area :Description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Location %>
+    <%= f.text_field :Location %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Image %>
+    <%= f.text_area :Image %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Thumbnail %>
+    <%= f.text_area :Thumbnail %>
+  </div>
+
+  <div class="field">
+    <%= f.label :UnitPrice %>
+    <%= f.text_field :UnitPrice %>
+  </div>
+
+  <div class="field">
+    <%= f.label :UnitCost %>
+    <%= f.text_field :UnitCost %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Weight %>
+    <%= f.text_field :Weight %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Quantity %>
+    <%= f.text_field :Quantity %>
+  </div>
+
+  <div class="field">
+    <%= f.label :LocalStatus %>
+    <%= f.text_field :LocalStatus %>
+  </div>
+
+  <div class="field">
+    <%= f.label :IsManual %>
+    <%= f.check_box :IsManual %>
+  </div>
+
+  <div class="field">
+    <%= f.label :TotalWeight %>
+    <%= f.text_field :TotalWeight %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

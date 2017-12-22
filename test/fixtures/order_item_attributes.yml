@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  RowVersion: 
+  OrderItemID: 
+  Name: MyString
+  Description: MyText
+  UnitPrice: 
+  IsManual: false
+
+two:
+  RowVersion: 
+  OrderItemID: 
+  Name: MyString
+  Description: MyText
+  UnitPrice: 
+  IsManual: false

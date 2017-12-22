@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Rowversion:</strong>
+  <%= @order_item_attribute.RowVersion %>
+</p>
+
+<p>
+  <strong>Orderitemid:</strong>
+  <%= @order_item_attribute.OrderItemID %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @order_item_attribute.Name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @order_item_attribute.Description %>
+</p>
+
+<p>
+  <strong>Unitprice:</strong>
+  <%= @order_item_attribute.UnitPrice %>
+</p>
+
+<p>
+  <strong>Ismanual:</strong>
+  <%= @order_item_attribute.IsManual %>
+</p>
+
+<%= link_to 'Edit', edit_order_item_attribute_path(@order_item_attribute) %> |
+<%= link_to 'Back', order_item_attributes_path %>

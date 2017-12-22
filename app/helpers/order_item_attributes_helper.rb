@@ -1,0 +1,2 @@
+module OrderItemAttributesHelper
+end

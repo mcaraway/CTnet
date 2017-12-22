@@ -1,0 +1,151 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  RowVersion: 
+  StoreID: 
+  CustomerID: 
+  OrderNumber: 
+  OrderNumberComplete: MyString
+  OrderDate: 2017-12-20 22:40:37
+  OrderTotal: 
+  LocalStatus: MyString
+  IsManual: false
+  OnlineLastModified: 2017-12-20 22:40:37
+  OnlineCustomerID: MyString
+  OnlineStatus: MyString
+  OnlineStatusCode: MyString
+  RequestedShipping: MyString
+  BillFirstName: MyString
+  BillMiddleName: MyString
+  BillLastName: MyString
+  BillCompany: MyString
+  BillStreet1: MyString
+  BillStreet2: MyString
+  BillStreet3: MyString
+  BillCity: MyString
+  BillStateProvCode: MyString
+  BillPostalCode: MyString
+  BillCountryCode: MyString
+  BillPhone: MyString
+  BillFax: MyString
+  BillEmail: MyString
+  BillWebsite: MyString
+  BillAddressValidationSuggestionCount: 1
+  BillAddressValidationStatus: 1
+  BillAddressValidationError: MyString
+  BillResidentialStatus: 1
+  BillPOBox: 1
+  BillUSTerritory: 1
+  BillMilitaryAddress: 1
+  ShipFirstName: MyString
+  ShipMiddleName: MyString
+  ShipLastName: MyString
+  ShipCompany: MyString
+  ShipStreet1: MyString
+  ShipStreet2: MyString
+  ShipStreet3: MyString
+  ShipCity: MyString
+  ShipStateProvCode: MyString
+  ShipPostalCode: MyString
+  ShipCountryCode: MyString
+  ShipPhone: MyString
+  ShipFax: MyString
+  ShipEmail: MyString
+  ShipWebsite: MyString
+  ShipAddressValidationSuggestionCount: 1
+  ShipAddressValidationStatus: 1
+  ShipAddressValidationError: MyString
+  ShipResidentialStatus: 1
+  ShipPOBox: 1
+  ShipUSTerritory: 1
+  ShipMilitaryAddress: 1
+  RollupItemCount: 1
+  RollupItemName: MyString
+  RollupItemCode: MyString
+  RollupItemSKU: MyString
+  RollupItemLocation: MyString
+  RollupItemQuantity: 1.5
+  RollupItemTotalWeight: 1.5
+  RollupNoteCount: 1
+  BillNameParseStatus: 1
+  BillUnparsedName: MyString
+  ShipNameParseStatus: 1
+  ShipUnparsedName: MyString
+  ShipSenseHashKey: MyString
+  ShipSenseRecognitionStatus: 1
+  ShipAddressType: 1
+
+two:
+  RowVersion: 
+  StoreID: 
+  CustomerID: 
+  OrderNumber: 
+  OrderNumberComplete: MyString
+  OrderDate: 2017-12-20 22:40:37
+  OrderTotal: 
+  LocalStatus: MyString
+  IsManual: false
+  OnlineLastModified: 2017-12-20 22:40:37
+  OnlineCustomerID: MyString
+  OnlineStatus: MyString
+  OnlineStatusCode: MyString
+  RequestedShipping: MyString
+  BillFirstName: MyString
+  BillMiddleName: MyString
+  BillLastName: MyString
+  BillCompany: MyString
+  BillStreet1: MyString
+  BillStreet2: MyString
+  BillStreet3: MyString
+  BillCity: MyString
+  BillStateProvCode: MyString
+  BillPostalCode: MyString
+  BillCountryCode: MyString
+  BillPhone: MyString
+  BillFax: MyString
+  BillEmail: MyString
+  BillWebsite: MyString
+  BillAddressValidationSuggestionCount: 1
+  BillAddressValidationStatus: 1
+  BillAddressValidationError: MyString
+  BillResidentialStatus: 1
+  BillPOBox: 1
+  BillUSTerritory: 1
+  BillMilitaryAddress: 1
+  ShipFirstName: MyString
+  ShipMiddleName: MyString
+  ShipLastName: MyString
+  ShipCompany: MyString
+  ShipStreet1: MyString
+  ShipStreet2: MyString
+  ShipStreet3: MyString
+  ShipCity: MyString
+  ShipStateProvCode: MyString
+  ShipPostalCode: MyString
+  ShipCountryCode: MyString
+  ShipPhone: MyString
+  ShipFax: MyString
+  ShipEmail: MyString
+  ShipWebsite: MyString
+  ShipAddressValidationSuggestionCount: 1
+  ShipAddressValidationStatus: 1
+  ShipAddressValidationError: MyString
+  ShipResidentialStatus: 1
+  ShipPOBox: 1
+  ShipUSTerritory: 1
+  ShipMilitaryAddress: 1
+  RollupItemCount: 1
+  RollupItemName: MyString
+  RollupItemCode: MyString
+  RollupItemSKU: MyString
+  RollupItemLocation: MyString
+  RollupItemQuantity: 1.5
+  RollupItemTotalWeight: 1.5
+  RollupNoteCount: 1
+  BillNameParseStatus: 1
+  BillUnparsedName: MyString
+  ShipNameParseStatus: 1
+  ShipUnparsedName: MyString
+  ShipSenseHashKey: MyString
+  ShipSenseRecognitionStatus: 1
+  ShipAddressType: 1

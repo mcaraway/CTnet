@@ -1,0 +1,63 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  RowVersion: 
+  License: MyString
+  Edition: MyText
+  TypeCode: 1
+  Enabled: false
+  SetupComplete: false
+  StoreName: MyString
+  Company: MyString
+  Street1: MyString
+  Street2: MyString
+  Street3: MyString
+  City: MyString
+  StateProvCode: MyString
+  PostalCode: MyString
+  CountryCode: MyString
+  Phone: MyString
+  Fax: MyString
+  Email: MyString
+  Website: MyString
+  AutoDownload: false
+  AutoDownloadMinutes: 1
+  AutoDownloadOnlyAway: false
+  AddressValidationSetting: 1
+  ComputerDownloadPolicy: MyText
+  DefaultEmailAccountID: 
+  ManualOrderPrefix: MyString
+  ManualOrderPostfix: MyString
+  InitialDownloadDays: 1
+  InitialDownloadOrder: 
+
+two:
+  RowVersion: 
+  License: MyString
+  Edition: MyText
+  TypeCode: 1
+  Enabled: false
+  SetupComplete: false
+  StoreName: MyString
+  Company: MyString
+  Street1: MyString
+  Street2: MyString
+  Street3: MyString
+  City: MyString
+  StateProvCode: MyString
+  PostalCode: MyString
+  CountryCode: MyString
+  Phone: MyString
+  Fax: MyString
+  Email: MyString
+  Website: MyString
+  AutoDownload: false
+  AutoDownloadMinutes: 1
+  AutoDownloadOnlyAway: false
+  AddressValidationSetting: 1
+  ComputerDownloadPolicy: MyText
+  DefaultEmailAccountID: 
+  ManualOrderPrefix: MyString
+  ManualOrderPostfix: MyString
+  InitialDownloadDays: 1
+  InitialDownloadOrder: 

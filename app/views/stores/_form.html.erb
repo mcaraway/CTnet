@@ -1,0 +1,162 @@
+<%= form_for(store) do |f| %>
+  <% if store.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(store.errors.count, "error") %> prohibited this store from being saved:</h2>
+
+      <ul>
+      <% store.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :RowVersion %>
+    <%= f.text_field :RowVersion %>
+  </div>
+
+  <div class="field">
+    <%= f.label :License %>
+    <%= f.text_field :License %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Edition %>
+    <%= f.text_area :Edition %>
+  </div>
+
+  <div class="field">
+    <%= f.label :TypeCode %>
+    <%= f.number_field :TypeCode %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Enabled %>
+    <%= f.check_box :Enabled %>
+  </div>
+
+  <div class="field">
+    <%= f.label :SetupComplete %>
+    <%= f.check_box :SetupComplete %>
+  </div>
+
+  <div class="field">
+    <%= f.label :StoreName %>
+    <%= f.text_field :StoreName %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Company %>
+    <%= f.text_field :Company %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Street1 %>
+    <%= f.text_field :Street1 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Street2 %>
+    <%= f.text_field :Street2 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Street3 %>
+    <%= f.text_field :Street3 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :City %>
+    <%= f.text_field :City %>
+  </div>
+
+  <div class="field">
+    <%= f.label :StateProvCode %>
+    <%= f.text_field :StateProvCode %>
+  </div>
+
+  <div class="field">
+    <%= f.label :PostalCode %>
+    <%= f.text_field :PostalCode %>
+  </div>
+
+  <div class="field">
+    <%= f.label :CountryCode %>
+    <%= f.text_field :CountryCode %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Phone %>
+    <%= f.text_field :Phone %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Fax %>
+    <%= f.text_field :Fax %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Email %>
+    <%= f.text_field :Email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Website %>
+    <%= f.text_field :Website %>
+  </div>
+
+  <div class="field">
+    <%= f.label :AutoDownload %>
+    <%= f.check_box :AutoDownload %>
+  </div>
+
+  <div class="field">
+    <%= f.label :AutoDownloadMinutes %>
+    <%= f.number_field :AutoDownloadMinutes %>
+  </div>
+
+  <div class="field">
+    <%= f.label :AutoDownloadOnlyAway %>
+    <%= f.check_box :AutoDownloadOnlyAway %>
+  </div>
+
+  <div class="field">
+    <%= f.label :AddressValidationSetting %>
+    <%= f.number_field :AddressValidationSetting %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ComputerDownloadPolicy %>
+    <%= f.text_area :ComputerDownloadPolicy %>
+  </div>
+
+  <div class="field">
+    <%= f.label :DefaultEmailAccountID %>
+    <%= f.text_field :DefaultEmailAccountID %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ManualOrderPrefix %>
+    <%= f.text_field :ManualOrderPrefix %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ManualOrderPostfix %>
+    <%= f.text_field :ManualOrderPostfix %>
+  </div>
+
+  <div class="field">
+    <%= f.label :InitialDownloadDays %>
+    <%= f.number_field :InitialDownloadDays %>
+  </div>
+
+  <div class="field">
+    <%= f.label :InitialDownloadOrder %>
+    <%= f.text_field :InitialDownloadOrder %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

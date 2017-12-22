@@ -1,0 +1,149 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  RowVersion: 
+  OrderID: 
+  ShipmentType: 1
+  ContentWeight: 1.5
+  TotalWeight: 1.5
+  Processed: false
+  ProcessedDate: 2017-12-20 22:41:46
+  ProcessedUserID: 
+  ProcessedComputerID: 
+  ShipDate: 2017-12-20 22:41:46
+  ShipmentCost: 
+  Voided: false
+  VoidedDate: 2017-12-20 22:41:46
+  VoidedUserID: 
+  VoidedComputerID: 
+  TrackingNumber: MyString
+  CustomsGenerated: false
+  CustomsValue: 
+  RequestedLabelFormat: 1
+  ActualLabelFormat: 1
+  ShipFirstName: MyString
+  ShipMiddleName: MyString
+  ShipLastName: MyString
+  ShipCompany: MyString
+  ShipStreet1: MyString
+  ShipStreet2: MyString
+  ShipStreet3: MyString
+  ShipCity: MyString
+  ShipStateProvCode: MyString
+  ShipPostalCode: MyString
+  ShipCountryCode: MyString
+  ShipPhone: MyString
+  ShipEmail: MyString
+  ShipAddressValidationSuggestionCount: 1
+  ShipAddressValidationStatus: 1
+  ShipAddressValidationError: MyString
+  ShipResidentialStatus: 1
+  ShipPOBox: 1
+  ShipUSTerritory: 1
+  ShipMilitaryAddress: 1
+  ResidentialDetermination: 1
+  ResidentialResult: false
+  OriginOriginID: 
+  OriginFirstName: MyString
+  OriginMiddleName: MyString
+  OriginLastName: MyString
+  OriginCompany: MyString
+  OriginStreet1: MyString
+  OriginStreet2: MyString
+  OriginStreet3: MyString
+  OriginCity: MyString
+  OriginStateProvCode: MyString
+  OriginPostalCode: MyString
+  OriginCountryCode: MyString
+  OriginPhone: MyString
+  OriginFax: MyString
+  OriginEmail: MyString
+  OriginWebsite: MyString
+  ReturnShipment: false
+  Insurance: false
+  InsuranceProvider: 1
+  ShipNameParseStatus: 1
+  ShipUnparsedName: MyString
+  OriginNameParseStatus: 1
+  OriginUnparsedName: MyString
+  BestRateEvents: 1
+  ShipSenseStatus: 1
+  ShipSenseChangeSets: MyString
+  ShipSenseEntry: 
+  OnlineShipmentID: 
+  BilledType: 1
+  BilledWeight: 1.5
+
+two:
+  RowVersion: 
+  OrderID: 
+  ShipmentType: 1
+  ContentWeight: 1.5
+  TotalWeight: 1.5
+  Processed: false
+  ProcessedDate: 2017-12-20 22:41:46
+  ProcessedUserID: 
+  ProcessedComputerID: 
+  ShipDate: 2017-12-20 22:41:46
+  ShipmentCost: 
+  Voided: false
+  VoidedDate: 2017-12-20 22:41:46
+  VoidedUserID: 
+  VoidedComputerID: 
+  TrackingNumber: MyString
+  CustomsGenerated: false
+  CustomsValue: 
+  RequestedLabelFormat: 1
+  ActualLabelFormat: 1
+  ShipFirstName: MyString
+  ShipMiddleName: MyString
+  ShipLastName: MyString
+  ShipCompany: MyString
+  ShipStreet1: MyString
+  ShipStreet2: MyString
+  ShipStreet3: MyString
+  ShipCity: MyString
+  ShipStateProvCode: MyString
+  ShipPostalCode: MyString
+  ShipCountryCode: MyString
+  ShipPhone: MyString
+  ShipEmail: MyString
+  ShipAddressValidationSuggestionCount: 1
+  ShipAddressValidationStatus: 1
+  ShipAddressValidationError: MyString
+  ShipResidentialStatus: 1
+  ShipPOBox: 1
+  ShipUSTerritory: 1
+  ShipMilitaryAddress: 1
+  ResidentialDetermination: 1
+  ResidentialResult: false
+  OriginOriginID: 
+  OriginFirstName: MyString
+  OriginMiddleName: MyString
+  OriginLastName: MyString
+  OriginCompany: MyString
+  OriginStreet1: MyString
+  OriginStreet2: MyString
+  OriginStreet3: MyString
+  OriginCity: MyString
+  OriginStateProvCode: MyString
+  OriginPostalCode: MyString
+  OriginCountryCode: MyString
+  OriginPhone: MyString
+  OriginFax: MyString
+  OriginEmail: MyString
+  OriginWebsite: MyString
+  ReturnShipment: false
+  Insurance: false
+  InsuranceProvider: 1
+  ShipNameParseStatus: 1
+  ShipUnparsedName: MyString
+  OriginNameParseStatus: 1
+  OriginUnparsedName: MyString
+  BestRateEvents: 1
+  ShipSenseStatus: 1
+  ShipSenseChangeSets: MyString
+  ShipSenseEntry: 
+  OnlineShipmentID: 
+  BilledType: 1
+  BilledWeight: 1.5

@@ -1,0 +1,94 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Rowversion:</strong>
+  <%= @order_item.RowVersion %>
+</p>
+
+<p>
+  <strong>Orderid:</strong>
+  <%= @order_item.OrderID %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @order_item.Name %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @order_item.Code %>
+</p>
+
+<p>
+  <strong>Sku:</strong>
+  <%= @order_item.SKU %>
+</p>
+
+<p>
+  <strong>Isbn:</strong>
+  <%= @order_item.ISBN %>
+</p>
+
+<p>
+  <strong>Upc:</strong>
+  <%= @order_item.UPC %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @order_item.Description %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @order_item.Location %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @order_item.Image %>
+</p>
+
+<p>
+  <strong>Thumbnail:</strong>
+  <%= @order_item.Thumbnail %>
+</p>
+
+<p>
+  <strong>Unitprice:</strong>
+  <%= @order_item.UnitPrice %>
+</p>
+
+<p>
+  <strong>Unitcost:</strong>
+  <%= @order_item.UnitCost %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @order_item.Weight %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @order_item.Quantity %>
+</p>
+
+<p>
+  <strong>Localstatus:</strong>
+  <%= @order_item.LocalStatus %>
+</p>
+
+<p>
+  <strong>Ismanual:</strong>
+  <%= @order_item.IsManual %>
+</p>
+
+<p>
+  <strong>Totalweight:</strong>
+  <%= @order_item.TotalWeight %>
+</p>
+
+<%= link_to 'Edit', edit_order_item_path(@order_item) %> |
+<%= link_to 'Back', order_items_path %>

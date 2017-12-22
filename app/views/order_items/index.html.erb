@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Order Items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Rowversion</th>
+      <th>Orderid</th>
+      <th>Name</th>
+      <th>Code</th>
+      <th>Sku</th>
+      <th>Isbn</th>
+      <th>Upc</th>
+      <th>Description</th>
+      <th>Location</th>
+      <th>Image</th>
+      <th>Thumbnail</th>
+      <th>Unitprice</th>
+      <th>Unitcost</th>
+      <th>Weight</th>
+      <th>Quantity</th>
+      <th>Localstatus</th>
+      <th>Ismanual</th>
+      <th>Totalweight</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @order_items.each do |order_item| %>
+      <tr>
+        <td><%= order_item.RowVersion %></td>
+        <td><%= order_item.OrderID %></td>
+        <td><%= order_item.Name %></td>
+        <td><%= order_item.Code %></td>
+        <td><%= order_item.SKU %></td>
+        <td><%= order_item.ISBN %></td>
+        <td><%= order_item.UPC %></td>
+        <td><%= order_item.Description %></td>
+        <td><%= order_item.Location %></td>
+        <td><%= order_item.Image %></td>
+        <td><%= order_item.Thumbnail %></td>
+        <td><%= order_item.UnitPrice %></td>
+        <td><%= order_item.UnitCost %></td>
+        <td><%= order_item.Weight %></td>
+        <td><%= order_item.Quantity %></td>
+        <td><%= order_item.LocalStatus %></td>
+        <td><%= order_item.IsManual %></td>
+        <td><%= order_item.TotalWeight %></td>
+        <td><%= link_to 'Show', order_item %></td>
+        <td><%= link_to 'Edit', edit_order_item_path(order_item) %></td>
+        <td><%= link_to 'Destroy', order_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Order Item', new_order_item_path %>

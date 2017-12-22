@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  RowVersion: 
+  OrderID: 
+  Name: MyString
+  Code: MyString
+  SKU: MyString
+  ISBN: MyString
+  UPC: MyString
+  Description: MyText
+  Location: MyString
+  Image: MyText
+  Thumbnail: MyText
+  UnitPrice: 
+  UnitCost: 
+  Weight: 1.5
+  Quantity: 1.5
+  LocalStatus: MyString
+  IsManual: false
+  TotalWeight: 1.5
+
+two:
+  RowVersion: 
+  OrderID: 
+  Name: MyString
+  Code: MyString
+  SKU: MyString
+  ISBN: MyString
+  UPC: MyString
+  Description: MyText
+  Location: MyString
+  Image: MyText
+  Thumbnail: MyText
+  UnitPrice: 
+  UnitCost: 
+  Weight: 1.5
+  Quantity: 1.5
+  LocalStatus: MyString
+  IsManual: false
+  TotalWeight: 1.5

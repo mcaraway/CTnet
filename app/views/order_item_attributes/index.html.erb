@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Order Item Attributes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Rowversion</th>
+      <th>Orderitemid</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Unitprice</th>
+      <th>Ismanual</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @order_item_attributes.each do |order_item_attribute| %>
+      <tr>
+        <td><%= order_item_attribute.RowVersion %></td>
+        <td><%= order_item_attribute.OrderItemID %></td>
+        <td><%= order_item_attribute.Name %></td>
+        <td><%= order_item_attribute.Description %></td>
+        <td><%= order_item_attribute.UnitPrice %></td>
+        <td><%= order_item_attribute.IsManual %></td>
+        <td><%= link_to 'Show', order_item_attribute %></td>
+        <td><%= link_to 'Edit', edit_order_item_attribute_path(order_item_attribute) %></td>
+        <td><%= link_to 'Destroy', order_item_attribute, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Order Item Attribute', new_order_item_attribute_path %>

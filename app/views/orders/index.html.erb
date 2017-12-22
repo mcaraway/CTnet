@@ -1,0 +1,171 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Orders</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Rowversion</th>
+      <th>Storeid</th>
+      <th>Customerid</th>
+      <th>Ordernumber</th>
+      <th>Ordernumbercomplete</th>
+      <th>Orderdate</th>
+      <th>Ordertotal</th>
+      <th>Localstatus</th>
+      <th>Ismanual</th>
+      <th>Onlinelastmodified</th>
+      <th>Onlinecustomerid</th>
+      <th>Onlinestatus</th>
+      <th>Onlinestatuscode</th>
+      <th>Requestedshipping</th>
+      <th>Billfirstname</th>
+      <th>Billmiddlename</th>
+      <th>Billlastname</th>
+      <th>Billcompany</th>
+      <th>Billstreet1</th>
+      <th>Billstreet2</th>
+      <th>Billstreet3</th>
+      <th>Billcity</th>
+      <th>Billstateprovcode</th>
+      <th>Billpostalcode</th>
+      <th>Billcountrycode</th>
+      <th>Billphone</th>
+      <th>Billfax</th>
+      <th>Billemail</th>
+      <th>Billwebsite</th>
+      <th>Billaddressvalidationsuggestioncount</th>
+      <th>Billaddressvalidationstatus</th>
+      <th>Billaddressvalidationerror</th>
+      <th>Billresidentialstatus</th>
+      <th>Billpobox</th>
+      <th>Billusterritory</th>
+      <th>Billmilitaryaddress</th>
+      <th>Shipfirstname</th>
+      <th>Shipmiddlename</th>
+      <th>Shiplastname</th>
+      <th>Shipcompany</th>
+      <th>Shipstreet1</th>
+      <th>Shipstreet2</th>
+      <th>Shipstreet3</th>
+      <th>Shipcity</th>
+      <th>Shipstateprovcode</th>
+      <th>Shippostalcode</th>
+      <th>Shipcountrycode</th>
+      <th>Shipphone</th>
+      <th>Shipfax</th>
+      <th>Shipemail</th>
+      <th>Shipwebsite</th>
+      <th>Shipaddressvalidationsuggestioncount</th>
+      <th>Shipaddressvalidationstatus</th>
+      <th>Shipaddressvalidationerror</th>
+      <th>Shipresidentialstatus</th>
+      <th>Shippobox</th>
+      <th>Shipusterritory</th>
+      <th>Shipmilitaryaddress</th>
+      <th>Rollupitemcount</th>
+      <th>Rollupitemname</th>
+      <th>Rollupitemcode</th>
+      <th>Rollupitemsku</th>
+      <th>Rollupitemlocation</th>
+      <th>Rollupitemquantity</th>
+      <th>Rollupitemtotalweight</th>
+      <th>Rollupnotecount</th>
+      <th>Billnameparsestatus</th>
+      <th>Billunparsedname</th>
+      <th>Shipnameparsestatus</th>
+      <th>Shipunparsedname</th>
+      <th>Shipsensehashkey</th>
+      <th>Shipsenserecognitionstatus</th>
+      <th>Shipaddresstype</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.RowVersion %></td>
+        <td><%= order.StoreID %></td>
+        <td><%= order.CustomerID %></td>
+        <td><%= order.OrderNumber %></td>
+        <td><%= order.OrderNumberComplete %></td>
+        <td><%= order.OrderDate %></td>
+        <td><%= order.OrderTotal %></td>
+        <td><%= order.LocalStatus %></td>
+        <td><%= order.IsManual %></td>
+        <td><%= order.OnlineLastModified %></td>
+        <td><%= order.OnlineCustomerID %></td>
+        <td><%= order.OnlineStatus %></td>
+        <td><%= order.OnlineStatusCode %></td>
+        <td><%= order.RequestedShipping %></td>
+        <td><%= order.BillFirstName %></td>
+        <td><%= order.BillMiddleName %></td>
+        <td><%= order.BillLastName %></td>
+        <td><%= order.BillCompany %></td>
+        <td><%= order.BillStreet1 %></td>
+        <td><%= order.BillStreet2 %></td>
+        <td><%= order.BillStreet3 %></td>
+        <td><%= order.BillCity %></td>
+        <td><%= order.BillStateProvCode %></td>
+        <td><%= order.BillPostalCode %></td>
+        <td><%= order.BillCountryCode %></td>
+        <td><%= order.BillPhone %></td>
+        <td><%= order.BillFax %></td>
+        <td><%= order.BillEmail %></td>
+        <td><%= order.BillWebsite %></td>
+        <td><%= order.BillAddressValidationSuggestionCount %></td>
+        <td><%= order.BillAddressValidationStatus %></td>
+        <td><%= order.BillAddressValidationError %></td>
+        <td><%= order.BillResidentialStatus %></td>
+        <td><%= order.BillPOBox %></td>
+        <td><%= order.BillUSTerritory %></td>
+        <td><%= order.BillMilitaryAddress %></td>
+        <td><%= order.ShipFirstName %></td>
+        <td><%= order.ShipMiddleName %></td>
+        <td><%= order.ShipLastName %></td>
+        <td><%= order.ShipCompany %></td>
+        <td><%= order.ShipStreet1 %></td>
+        <td><%= order.ShipStreet2 %></td>
+        <td><%= order.ShipStreet3 %></td>
+        <td><%= order.ShipCity %></td>
+        <td><%= order.ShipStateProvCode %></td>
+        <td><%= order.ShipPostalCode %></td>
+        <td><%= order.ShipCountryCode %></td>
+        <td><%= order.ShipPhone %></td>
+        <td><%= order.ShipFax %></td>
+        <td><%= order.ShipEmail %></td>
+        <td><%= order.ShipWebsite %></td>
+        <td><%= order.ShipAddressValidationSuggestionCount %></td>
+        <td><%= order.ShipAddressValidationStatus %></td>
+        <td><%= order.ShipAddressValidationError %></td>
+        <td><%= order.ShipResidentialStatus %></td>
+        <td><%= order.ShipPOBox %></td>
+        <td><%= order.ShipUSTerritory %></td>
+        <td><%= order.ShipMilitaryAddress %></td>
+        <td><%= order.RollupItemCount %></td>
+        <td><%= order.RollupItemName %></td>
+        <td><%= order.RollupItemCode %></td>
+        <td><%= order.RollupItemSKU %></td>
+        <td><%= order.RollupItemLocation %></td>
+        <td><%= order.RollupItemQuantity %></td>
+        <td><%= order.RollupItemTotalWeight %></td>
+        <td><%= order.RollupNoteCount %></td>
+        <td><%= order.BillNameParseStatus %></td>
+        <td><%= order.BillUnparsedName %></td>
+        <td><%= order.ShipNameParseStatus %></td>
+        <td><%= order.ShipUnparsedName %></td>
+        <td><%= order.ShipSenseHashKey %></td>
+        <td><%= order.ShipSenseRecognitionStatus %></td>
+        <td><%= order.ShipAddressType %></td>
+        <td><%= link_to 'Show', order %></td>
+        <td><%= link_to 'Edit', edit_order_path(order) %></td>
+        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Order', new_order_path %>

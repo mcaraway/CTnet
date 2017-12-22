@@ -1,0 +1,83 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Stores</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Rowversion</th>
+      <th>License</th>
+      <th>Edition</th>
+      <th>Typecode</th>
+      <th>Enabled</th>
+      <th>Setupcomplete</th>
+      <th>Storename</th>
+      <th>Company</th>
+      <th>Street1</th>
+      <th>Street2</th>
+      <th>Street3</th>
+      <th>City</th>
+      <th>Stateprovcode</th>
+      <th>Postalcode</th>
+      <th>Countrycode</th>
+      <th>Phone</th>
+      <th>Fax</th>
+      <th>Email</th>
+      <th>Website</th>
+      <th>Autodownload</th>
+      <th>Autodownloadminutes</th>
+      <th>Autodownloadonlyaway</th>
+      <th>Addressvalidationsetting</th>
+      <th>Computerdownloadpolicy</th>
+      <th>Defaultemailaccountid</th>
+      <th>Manualorderprefix</th>
+      <th>Manualorderpostfix</th>
+      <th>Initialdownloaddays</th>
+      <th>Initialdownloadorder</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stores.each do |store| %>
+      <tr>
+        <td><%= store.RowVersion %></td>
+        <td><%= store.License %></td>
+        <td><%= store.Edition %></td>
+        <td><%= store.TypeCode %></td>
+        <td><%= store.Enabled %></td>
+        <td><%= store.SetupComplete %></td>
+        <td><%= store.StoreName %></td>
+        <td><%= store.Company %></td>
+        <td><%= store.Street1 %></td>
+        <td><%= store.Street2 %></td>
+        <td><%= store.Street3 %></td>
+        <td><%= store.City %></td>
+        <td><%= store.StateProvCode %></td>
+        <td><%= store.PostalCode %></td>
+        <td><%= store.CountryCode %></td>
+        <td><%= store.Phone %></td>
+        <td><%= store.Fax %></td>
+        <td><%= store.Email %></td>
+        <td><%= store.Website %></td>
+        <td><%= store.AutoDownload %></td>
+        <td><%= store.AutoDownloadMinutes %></td>
+        <td><%= store.AutoDownloadOnlyAway %></td>
+        <td><%= store.AddressValidationSetting %></td>
+        <td><%= store.ComputerDownloadPolicy %></td>
+        <td><%= store.DefaultEmailAccountID %></td>
+        <td><%= store.ManualOrderPrefix %></td>
+        <td><%= store.ManualOrderPostfix %></td>
+        <td><%= store.InitialDownloadDays %></td>
+        <td><%= store.InitialDownloadOrder %></td>
+        <td><%= link_to 'Show', store %></td>
+        <td><%= link_to 'Edit', edit_store_path(store) %></td>
+        <td><%= link_to 'Destroy', store, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Store', new_store_path %>

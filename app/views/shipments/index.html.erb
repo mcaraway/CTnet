@@ -1,0 +1,169 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Shipments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Rowversion</th>
+      <th>Orderid</th>
+      <th>Shipmenttype</th>
+      <th>Contentweight</th>
+      <th>Totalweight</th>
+      <th>Processed</th>
+      <th>Processeddate</th>
+      <th>Processeduserid</th>
+      <th>Processedcomputerid</th>
+      <th>Shipdate</th>
+      <th>Shipmentcost</th>
+      <th>Voided</th>
+      <th>Voideddate</th>
+      <th>Voideduserid</th>
+      <th>Voidedcomputerid</th>
+      <th>Trackingnumber</th>
+      <th>Customsgenerated</th>
+      <th>Customsvalue</th>
+      <th>Requestedlabelformat</th>
+      <th>Actuallabelformat</th>
+      <th>Shipfirstname</th>
+      <th>Shipmiddlename</th>
+      <th>Shiplastname</th>
+      <th>Shipcompany</th>
+      <th>Shipstreet1</th>
+      <th>Shipstreet2</th>
+      <th>Shipstreet3</th>
+      <th>Shipcity</th>
+      <th>Shipstateprovcode</th>
+      <th>Shippostalcode</th>
+      <th>Shipcountrycode</th>
+      <th>Shipphone</th>
+      <th>Shipemail</th>
+      <th>Shipaddressvalidationsuggestioncount</th>
+      <th>Shipaddressvalidationstatus</th>
+      <th>Shipaddressvalidationerror</th>
+      <th>Shipresidentialstatus</th>
+      <th>Shippobox</th>
+      <th>Shipusterritory</th>
+      <th>Shipmilitaryaddress</th>
+      <th>Residentialdetermination</th>
+      <th>Residentialresult</th>
+      <th>Originoriginid</th>
+      <th>Originfirstname</th>
+      <th>Originmiddlename</th>
+      <th>Originlastname</th>
+      <th>Origincompany</th>
+      <th>Originstreet1</th>
+      <th>Originstreet2</th>
+      <th>Originstreet3</th>
+      <th>Origincity</th>
+      <th>Originstateprovcode</th>
+      <th>Originpostalcode</th>
+      <th>Origincountrycode</th>
+      <th>Originphone</th>
+      <th>Originfax</th>
+      <th>Originemail</th>
+      <th>Originwebsite</th>
+      <th>Returnshipment</th>
+      <th>Insurance</th>
+      <th>Insuranceprovider</th>
+      <th>Shipnameparsestatus</th>
+      <th>Shipunparsedname</th>
+      <th>Originnameparsestatus</th>
+      <th>Originunparsedname</th>
+      <th>Bestrateevents</th>
+      <th>Shipsensestatus</th>
+      <th>Shipsensechangesets</th>
+      <th>Shipsenseentry</th>
+      <th>Onlineshipmentid</th>
+      <th>Billedtype</th>
+      <th>Billedweight</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shipments.each do |shipment| %>
+      <tr>
+        <td><%= shipment.RowVersion %></td>
+        <td><%= shipment.OrderID %></td>
+        <td><%= shipment.ShipmentType %></td>
+        <td><%= shipment.ContentWeight %></td>
+        <td><%= shipment.TotalWeight %></td>
+        <td><%= shipment.Processed %></td>
+        <td><%= shipment.ProcessedDate %></td>
+        <td><%= shipment.ProcessedUserID %></td>
+        <td><%= shipment.ProcessedComputerID %></td>
+        <td><%= shipment.ShipDate %></td>
+        <td><%= shipment.ShipmentCost %></td>
+        <td><%= shipment.Voided %></td>
+        <td><%= shipment.VoidedDate %></td>
+        <td><%= shipment.VoidedUserID %></td>
+        <td><%= shipment.VoidedComputerID %></td>
+        <td><%= shipment.TrackingNumber %></td>
+        <td><%= shipment.CustomsGenerated %></td>
+        <td><%= shipment.CustomsValue %></td>
+        <td><%= shipment.RequestedLabelFormat %></td>
+        <td><%= shipment.ActualLabelFormat %></td>
+        <td><%= shipment.ShipFirstName %></td>
+        <td><%= shipment.ShipMiddleName %></td>
+        <td><%= shipment.ShipLastName %></td>
+        <td><%= shipment.ShipCompany %></td>
+        <td><%= shipment.ShipStreet1 %></td>
+        <td><%= shipment.ShipStreet2 %></td>
+        <td><%= shipment.ShipStreet3 %></td>
+        <td><%= shipment.ShipCity %></td>
+        <td><%= shipment.ShipStateProvCode %></td>
+        <td><%= shipment.ShipPostalCode %></td>
+        <td><%= shipment.ShipCountryCode %></td>
+        <td><%= shipment.ShipPhone %></td>
+        <td><%= shipment.ShipEmail %></td>
+        <td><%= shipment.ShipAddressValidationSuggestionCount %></td>
+        <td><%= shipment.ShipAddressValidationStatus %></td>
+        <td><%= shipment.ShipAddressValidationError %></td>
+        <td><%= shipment.ShipResidentialStatus %></td>
+        <td><%= shipment.ShipPOBox %></td>
+        <td><%= shipment.ShipUSTerritory %></td>
+        <td><%= shipment.ShipMilitaryAddress %></td>
+        <td><%= shipment.ResidentialDetermination %></td>
+        <td><%= shipment.ResidentialResult %></td>
+        <td><%= shipment.OriginOriginID %></td>
+        <td><%= shipment.OriginFirstName %></td>
+        <td><%= shipment.OriginMiddleName %></td>
+        <td><%= shipment.OriginLastName %></td>
+        <td><%= shipment.OriginCompany %></td>
+        <td><%= shipment.OriginStreet1 %></td>
+        <td><%= shipment.OriginStreet2 %></td>
+        <td><%= shipment.OriginStreet3 %></td>
+        <td><%= shipment.OriginCity %></td>
+        <td><%= shipment.OriginStateProvCode %></td>
+        <td><%= shipment.OriginPostalCode %></td>
+        <td><%= shipment.OriginCountryCode %></td>
+        <td><%= shipment.OriginPhone %></td>
+        <td><%= shipment.OriginFax %></td>
+        <td><%= shipment.OriginEmail %></td>
+        <td><%= shipment.OriginWebsite %></td>
+        <td><%= shipment.ReturnShipment %></td>
+        <td><%= shipment.Insurance %></td>
+        <td><%= shipment.InsuranceProvider %></td>
+        <td><%= shipment.ShipNameParseStatus %></td>
+        <td><%= shipment.ShipUnparsedName %></td>
+        <td><%= shipment.OriginNameParseStatus %></td>
+        <td><%= shipment.OriginUnparsedName %></td>
+        <td><%= shipment.BestRateEvents %></td>
+        <td><%= shipment.ShipSenseStatus %></td>
+        <td><%= shipment.ShipSenseChangeSets %></td>
+        <td><%= shipment.ShipSenseEntry %></td>
+        <td><%= shipment.OnlineShipmentID %></td>
+        <td><%= shipment.BilledType %></td>
+        <td><%= shipment.BilledWeight %></td>
+        <td><%= link_to 'Show', shipment %></td>
+        <td><%= link_to 'Edit', edit_shipment_path(shipment) %></td>
+        <td><%= link_to 'Destroy', shipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Shipment', new_shipment_path %>
