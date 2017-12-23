@@ -4,7 +4,7 @@ Rails.application.routes.draw do
       }
   root to: 'application#home'
   
-  get 'pages/home'
+  get 'pages/main'
   get '/home', to: 'application#home', as: 'home'
   
   resources :shipments
