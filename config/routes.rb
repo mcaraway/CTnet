@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   
   get 'pages/main'
   get '/home', to: 'application#home', as: 'home'
+  get '/billing', to: 'application#billing', as: 'billing'
   
   resources :shipments
   resources :stores
