@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+*= require cttheme/bootstrap
+*= require cttheme/font-awesome
+*= require cttheme/sb-admin
+*= require cttheme/morris
+
+th {
+	border-bottom: 1px solid blue;
+	background-color: #CCCCCC;
+}
+td {
+	border-bottom: 1px solid blue;
+}
