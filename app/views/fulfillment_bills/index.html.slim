@@ -1,0 +1,25 @@
+h1 Listing fulfillment_bills
+
+table
+  thead
+    tr
+      th Store name
+      th Start date
+      th End date
+      th
+      th
+      th
+
+  tbody
+    - @fulfillment_bills.each do |fulfillment_bill|
+      tr
+        td = fulfillment_bill.store_name
+        td = fulfillment_bill.start_date
+        td = fulfillment_bill.end_date
+        td = link_to 'Show', fulfillment_bill
+        td = link_to 'Edit', edit_fulfillment_bill_path(fulfillment_bill)
+        td = link_to 'Destroy', fulfillment_bill, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Fulfillment bill', new_fulfillment_bill_path

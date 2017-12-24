@@ -1,0 +1,2 @@
+class FulfillmentBill < ApplicationRecord
+end

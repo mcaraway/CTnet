@@ -1,0 +1,18 @@
+= form_for @fulfillment_bill do |f|
+  - if @fulfillment_bill.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@fulfillment_bill.errors.count, "error")} prohibited this fulfillment_bill from being saved:"
+      ul
+        - @fulfillment_bill.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :store_name
+    = f.text_field :store_name
+  .field
+    = f.label :start_date
+    = f.date_select :start_date
+  .field
+    = f.label :end_date
+    = f.date_select :end_date
+  .actions = f.submit
