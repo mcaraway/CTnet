@@ -1,5 +1,7 @@
+require 'logger'
 class FulfillmentBillsController < ApplicationController
   before_action :set_fulfillment_bill, only: [:show, :edit, :update, :destroy]
+  before_action :preload_stores
 
   # GET /fulfillment_bills
   # GET /fulfillment_bills.json
@@ -10,6 +12,8 @@ class FulfillmentBillsController < ApplicationController
   # GET /fulfillment_bills/1
   # GET /fulfillment_bills/1.json
   def show
+    @store = Store.find(@fulfillment_bill.store_name)
+    @orders = Order.where("StoreID=?", @fulfillment_bill.store_name).limit(5)
   end
 
   # GET /fulfillment_bills/new
@@ -70,5 +74,9 @@ class FulfillmentBillsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def fulfillment_bill_params
       params.require(:fulfillment_bill).permit(:store_name, :start_date, :end_date)
+    end
+    
+    def preload_stores
+      @stores = Store.all_cached
     end
 end

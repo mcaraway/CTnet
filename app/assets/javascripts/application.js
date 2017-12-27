@@ -17,3 +17,4 @@
 //= require cttheme/bootstrap
 //= require cttheme/plugins/morris/morris
 //= require cttheme/plugins/morris/raphael.min
+//= require bootstrap-datepicker

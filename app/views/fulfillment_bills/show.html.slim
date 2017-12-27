@@ -2,7 +2,7 @@ p#notice = notice
 
 p
   strong Store name:
-  = @fulfillment_bill.store_name
+  = @store.StoreName
 p
   strong Start date:
   = @fulfillment_bill.start_date
@@ -10,6 +10,10 @@ p
   strong End date:
   = @fulfillment_bill.end_date
 
+p
+  strong Order Number:
+  = @orders[1].OrderNumber
+  
 = link_to 'Edit', edit_fulfillment_bill_path(@fulfillment_bill)
 '|
 = link_to 'Back', fulfillment_bills_path
