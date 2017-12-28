@@ -1,0 +1,25 @@
+h2 Orders for Period
+br
+= will_paginate @orders
+br
+table.table.table-bordered.table-hover.table-striped
+  thead
+    tr
+      th
+        | Ordernumber
+      th
+        | Orderdate
+      th
+        | Localstatus
+  tbody
+    - @orders.each do |order|
+      tr
+
+      td
+        = link_to order.OrderNumber, order
+      td
+        = order.OrderDate
+      td
+        = order.LocalStatus
+br
+= will_paginate @orders

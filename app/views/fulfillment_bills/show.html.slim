@@ -9,11 +9,11 @@ p
 p
   strong End date:
   = @fulfillment_bill.end_date
-
-p
-  strong Order Number:
-  = @orders[1].OrderNumber
   
 = link_to 'Edit', edit_fulfillment_bill_path(@fulfillment_bill)
 '|
 = link_to 'Back', fulfillment_bills_path
+
+== render 'items_table'	
+
+== render 'order_table'
