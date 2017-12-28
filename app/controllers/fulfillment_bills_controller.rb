@@ -13,7 +13,9 @@ class FulfillmentBillsController < ApplicationController
   # GET /fulfillment_bills/1.json
   def show
     @store = Store.find(@fulfillment_bill.store_name)
-    @orders = Order.where("StoreID=?", @fulfillment_bill.store_name).limit(5)
+    @order_item_counts = OrderItem.shipped_by_range_counts(@fulfillment_bill.store_name,@fulfillment_bill.start_date,@fulfillment_bill.end_date)
+    @orders = Order.shipped_by_range(@fulfillment_bill.store_name,@fulfillment_bill.start_date,@fulfillment_bill.end_date)
+      .paginate(:page => params[:page], :per_page => 50)
   end
 
   # GET /fulfillment_bills/new

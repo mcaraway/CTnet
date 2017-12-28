@@ -1,2 +1,2 @@
-class OrderItemAttribute < ApplicationRecord
+class OrderItemAttribute < ShipworksDbBase
 end
