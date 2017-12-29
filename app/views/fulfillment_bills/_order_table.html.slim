@@ -11,6 +11,10 @@ table.table.table-bordered.table-hover.table-striped
         | Orderdate
       th
         | Localstatus
+      th
+      	| Shipment Cost
+      th
+      	| Item
   tbody
     - @orders.each do |order|
       tr
@@ -21,5 +25,9 @@ table.table.table-bordered.table-hover.table-striped
         = order.OrderDate
       td
         = order.LocalStatus
+      td
+      	= order.RollupItemQuantity
+      td
+        = order.RollupItemName
 br
 = will_paginate @orders

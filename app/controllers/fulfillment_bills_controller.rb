@@ -16,6 +16,9 @@ class FulfillmentBillsController < ApplicationController
     @order_item_counts = OrderItem.shipped_by_range_counts(@fulfillment_bill.store_name,@fulfillment_bill.start_date,@fulfillment_bill.end_date)
     @orders = Order.shipped_by_range(@fulfillment_bill.store_name,@fulfillment_bill.start_date,@fulfillment_bill.end_date)
       .paginate(:page => params[:page], :per_page => 50)
+    @shipment_count = Shipment.count_by_range(@fulfillment_bill.store_name,@fulfillment_bill.start_date,@fulfillment_bill.end_date)
+    @usps_cost = Shipment.usps_cost_by_range(@fulfillment_bill.store_name,@fulfillment_bill.start_date,@fulfillment_bill.end_date)
+    @usps_count = Shipment.usps_count_by_range(@fulfillment_bill.store_name,@fulfillment_bill.start_date,@fulfillment_bill.end_date)
   end
 
   # GET /fulfillment_bills/new
