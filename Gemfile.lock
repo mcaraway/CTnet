@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/mcaraway/fishbowl.git
+  revision: c6188ff88d9e6f0bc17839a1b9469bff230007a3
+  specs:
+    fishbowl (1.0)
+      nokogiri (~> 1.7)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -191,6 +198,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
   devise
+  fishbowl!
   jbuilder (~> 2.5)
   jquery-rails
   puma (~> 3.0)

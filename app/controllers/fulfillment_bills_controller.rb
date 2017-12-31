@@ -19,6 +19,7 @@ class FulfillmentBillsController < ApplicationController
     @shipment_count = Shipment.count_by_range(@fulfillment_bill.store_name,@fulfillment_bill.start_date,@fulfillment_bill.end_date)
     @usps_cost = Shipment.usps_cost_by_range(@fulfillment_bill.store_name,@fulfillment_bill.start_date,@fulfillment_bill.end_date)
     @usps_count = Shipment.usps_count_by_range(@fulfillment_bill.store_name,@fulfillment_bill.start_date,@fulfillment_bill.end_date)
+    @carriers = fishbowl
   end
 
   # GET /fulfillment_bills/new
@@ -83,5 +84,11 @@ class FulfillmentBillsController < ApplicationController
     
     def preload_stores
       @stores = Store.all_cached
+    end
+    
+    def fishbowl
+      Fishbowl::Connection.connect
+      Fishbowl::Connection.login
+      carriers = Fishbowl::Requests.get_carrier_list
     end
 end

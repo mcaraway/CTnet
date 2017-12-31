@@ -49,3 +49,4 @@ gem 'activerecord-sqlserver-adapter'
 gem 'devise'
 gem 'will_paginate'
 gem 'bootstrap-datepicker-rails'
+gem 'fishbowl', :git => "git://github.com/mcaraway/fishbowl.git"
