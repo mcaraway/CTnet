@@ -4,6 +4,9 @@ p
   strong Store name:
   = @store.StoreName
 p
+  strong Customer name:
+  = @customer.name  
+p
   strong Start date:
   = @fulfillment_bill.start_date
 p
@@ -13,9 +16,7 @@ p
 = link_to 'Edit', edit_fulfillment_bill_path(@fulfillment_bill)
 '|
 = link_to 'Back', fulfillment_bills_path
-br
-- @carriers.each do |carrier|
-  =carrier.name
+
 br
 .well.col-lg-6
  = render 'items_table'	

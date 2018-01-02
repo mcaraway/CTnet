@@ -15,4 +15,7 @@
   .field
     = f.label :end_date
     = f.date_field :end_date
+  .field
+    = f.label :customer_id
+    = f.select "customer_id", options_from_collection_for_select(@customers, "customer_id","name")
   .actions = f.submit
