@@ -12,13 +12,14 @@ class FulfillmentBillsController < ApplicationController
   # GET /fulfillment_bills/1
   # GET /fulfillment_bills/1.json
   def show
-    @store = Store.find(@fulfillment_bill.store_name)
-    @order_item_counts = OrderItem.shipped_by_range_counts(@fulfillment_bill.store_name,@fulfillment_bill.start_date,@fulfillment_bill.end_date)
-    @orders = Order.shipped_by_range(@fulfillment_bill.store_name,@fulfillment_bill.start_date,@fulfillment_bill.end_date)
+    @store = Store.find(@fulfillment_bill.store_id)
+    @customer = get_customer(@fulfillment_bill.customer_id)
+    @order_item_counts = OrderItem.shipped_by_range_counts(@fulfillment_bill.store_id,@fulfillment_bill.start_date,@fulfillment_bill.end_date)
+    @orders = Order.shipped_by_range(@fulfillment_bill.store_id,@fulfillment_bill.start_date,@fulfillment_bill.end_date)
       .paginate(:page => params[:page], :per_page => 50)
-    @shipment_count = Shipment.count_by_range(@fulfillment_bill.store_name,@fulfillment_bill.start_date,@fulfillment_bill.end_date)
-    @usps_cost = Shipment.usps_cost_by_range(@fulfillment_bill.store_name,@fulfillment_bill.start_date,@fulfillment_bill.end_date)
-    @usps_count = Shipment.usps_count_by_range(@fulfillment_bill.store_name,@fulfillment_bill.start_date,@fulfillment_bill.end_date)
+    @shipment_count = Shipment.count_by_range(@fulfillment_bill.store_id,@fulfillment_bill.start_date,@fulfillment_bill.end_date)
+    @usps_cost = Shipment.usps_cost_by_range(@fulfillment_bill.store_id,@fulfillment_bill.start_date,@fulfillment_bill.end_date)
+    @usps_count = Shipment.usps_count_by_range(@fulfillment_bill.store_id,@fulfillment_bill.start_date,@fulfillment_bill.end_date)
   end
 
   # GET /fulfillment_bills/new
@@ -34,7 +35,8 @@ class FulfillmentBillsController < ApplicationController
   # POST /fulfillment_bills.json
   def create
     @fulfillment_bill = FulfillmentBill.new(fulfillment_bill_params)
-
+    set_store_name
+    
     respond_to do |format|
       if @fulfillment_bill.save
         format.html { redirect_to @fulfillment_bill, notice: 'Fulfillment bill was successfully created.' }
@@ -49,8 +51,14 @@ class FulfillmentBillsController < ApplicationController
   # PATCH/PUT /fulfillment_bills/1
   # PATCH/PUT /fulfillment_bills/1.json
   def update
+    attributes = fulfillment_bill_params.clone
+    puts attributes
+    @store = Store.find(attributes["store_id"])
+    puts "Found Store = #{@store.StoreName}" if !@store.nil?
+    attributes = attributes.merge("store_name" => @store.StoreName)
+    puts attributes
     respond_to do |format|
-      if @fulfillment_bill.update(fulfillment_bill_params)
+      if @fulfillment_bill.update(attributes)
         format.html { redirect_to @fulfillment_bill, notice: 'Fulfillment bill was successfully updated.' }
         format.json { render :show, status: :ok, location: @fulfillment_bill }
       else
@@ -73,12 +81,21 @@ class FulfillmentBillsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_fulfillment_bill
+      Fishbowl.configuration.debug = false
       @fulfillment_bill = FulfillmentBill.find(params[:id])
     end
 
+    def get_customer (id)
+      @customers.find { |c| c.customer_id == id.to_s }
+    end
+     
+    def set_store_name
+      @store = Store.find(@fulfillment_bill.store_id)
+      @fulfillment_bill.store_name = @store.name
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def fulfillment_bill_params
-      params.require(:fulfillment_bill).permit(:store_name, :start_date, :end_date)
+      params.require(:fulfillment_bill).permit(:store_name, :start_date, :end_date, :store_id, :customer_id)
     end
     
     def preload_stores

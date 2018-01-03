@@ -7,15 +7,15 @@
           li = message
 
   .field
-    = f.label :store_name
-    = f.select "store_name", options_from_collection_for_select(@stores, "StoreID", "StoreName")
+    = f.label "Store"
+    =< f.collection_select :store_id, @stores, :StoreID, :StoreName, prompt: true
   .field
     = f.label :start_date
-    = f.date_field :start_date
+    =< f.date_field :start_date
   .field
     = f.label :end_date
-    = f.date_field :end_date
+    =< f.date_field :end_date
   .field
     = f.label :customer_id
-    = f.select "customer_id", options_from_collection_for_select(@customers, "customer_id","name")
+    =< f.collection_select :customer_id, @customers, :customer_id, :name, prompt: true
   .actions = f.submit

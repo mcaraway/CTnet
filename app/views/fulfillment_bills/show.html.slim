@@ -1,17 +1,17 @@
 p#notice = notice
 
 p
-  strong Store name:
-  = @store.StoreName
+  strong Shipworks Store Name:
+  =< @fulfillment_bill.store_name
 p
-  strong Customer name:
-  = @customer.name  
+  strong Fishbowl Customer Name:
+  =< @customer.name  
 p
   strong Start date:
-  = @fulfillment_bill.start_date
+  =< @fulfillment_bill.start_date
 p
   strong End date:
-  = @fulfillment_bill.end_date
+  =< @fulfillment_bill.end_date
   
 = link_to 'Edit', edit_fulfillment_bill_path(@fulfillment_bill)
 '|
