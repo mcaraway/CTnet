@@ -1,4 +1,13 @@
-h1 Listing fulfillment_bills
+h1 <i class="fa fa-money fa-fw"></i> Billing
+
+.col-sm-4
+	.list-group
+		- @fulfillment_bills.each do |fulfillment_bill|
+			a.list-group-item href= edit_fulfillment_bill_path(fulfillment_bill)
+				h4.list-group-item-heading Run Billing for fulfillment_bill.store_name
+				p.list-group-item-text Run weekly billing reports.  
+
+
 
 table.table.table-bordered.table-hover.table-striped
   thead

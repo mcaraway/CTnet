@@ -9,11 +9,10 @@ table.table.table-bordered.table-hover.table-striped
   tbody
     - @order_item_counts.each do |order_item|
       tr
-      
-      td
-        = order_item.name
-      td
-        = order_item.quantity
+        td
+          = order_item.name
+        td
+          = order_item.quantity
     tr
    	  td
    		| fulfillment - per unit

@@ -18,16 +18,15 @@ table.table.table-bordered.table-hover.table-striped
   tbody
     - @orders.each do |order|
       tr
-
-      td
-        = link_to order.OrderNumber, order
-      td
-        = order.OrderDate
-      td
-        = order.LocalStatus
-      td
-      	= order.RollupItemQuantity
-      td
-        = order.RollupItemName
+        td
+          = link_to order.OrderNumber, order
+        td
+          = order.OrderDate
+        td
+          = order.LocalStatus
+        td
+      	  = order.RollupItemQuantity
+        td
+          = order.RollupItemName
 br
 = will_paginate @orders

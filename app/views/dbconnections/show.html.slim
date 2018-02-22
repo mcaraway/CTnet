@@ -1,0 +1,30 @@
+p#notice = notice
+
+p
+  strong Adapter:
+  = @dbconnection.adapter
+p
+  strong Mode:
+  = @dbconnection.mode
+p
+  strong Host:
+  = @dbconnection.host
+p
+  strong Port:
+  = @dbconnection.port
+p
+  strong Username:
+  = @dbconnection.username
+p
+  strong Password:
+  = @dbconnection.password
+p
+  strong Database:
+  = @dbconnection.database
+p
+  strong Encoding:
+  = @dbconnection.encoding
+
+= link_to 'Edit', edit_dbconnection_path(@dbconnection)
+'|
+= link_to 'Back', dbconnections_path

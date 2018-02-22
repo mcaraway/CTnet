@@ -1,0 +1,25 @@
+h2 Parts 
+br
+= will_paginate @parts
+br
+table.table.table-bordered.table-hover.table-striped
+  thead
+    tr
+      th
+        | Part ID
+      th
+        | Name
+      th
+        | Description
+  tbody
+    - @parts.each do |part|
+      tr
+
+      td
+        = link_to part.id, part
+      td
+        = part.num
+      td
+        = part.description
+br
+= will_paginate @parts

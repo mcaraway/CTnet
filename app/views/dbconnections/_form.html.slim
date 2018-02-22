@@ -1,0 +1,33 @@
+= form_for @dbconnection do |f|
+  - if @dbconnection.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@dbconnection.errors.count, "error")} prohibited this dbconnection from being saved:"
+      ul
+        - @dbconnection.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :adapter
+    = f.text_field :adapter
+  .field
+    = f.label :mode
+    = f.text_field :mode
+  .field
+    = f.label :host
+    = f.text_field :host
+  .field
+    = f.label :port
+    = f.text_field :port
+  .field
+    = f.label :username
+    = f.text_field :username
+  .field
+    = f.label :password
+    = f.text_field :password
+  .field
+    = f.label :database
+    = f.text_field :database
+  .field
+    = f.label :encoding
+    = f.text_field :encoding
+  .actions = f.submit

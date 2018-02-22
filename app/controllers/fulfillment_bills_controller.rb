@@ -86,7 +86,7 @@ class FulfillmentBillsController < ApplicationController
     end
 
     def get_customer (id)
-      @customers.find { |c| c.customer_id == id.to_s }
+      @customers.find(id)
     end
      
     def set_store_name
@@ -100,10 +100,6 @@ class FulfillmentBillsController < ApplicationController
     
     def preload_stores
       @stores = Store.all_cached
-      @customers = fishbowl_customers
-    end
-    
-    def fishbowl_customers
-      Fishbowl::Requests.get_customer_list
+      @customers = Customer.all
     end
 end

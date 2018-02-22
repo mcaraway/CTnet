@@ -1,0 +1,30 @@
+= form_for @restconnection do |f|
+  - if @restconnection.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@restconnection.errors.count, "error")} prohibited this restconnection from being saved:"
+      ul
+        - @restconnection.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :host
+    = f.text_field :host
+  .field
+    = f.label :appname
+    = f.text_field :appname
+  .field
+    = f.label :appid
+    = f.text_field :appid
+  .field
+    = f.label :description
+    = f.text_field :description
+  .field
+    = f.label :debug
+    = f.text_field :debug
+  .field
+    = f.label :username
+    = f.text_field :username
+  .field
+    = f.label :password
+    = f.text_field :password
+  .actions = f.submit

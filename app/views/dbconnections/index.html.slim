@@ -1,0 +1,35 @@
+h1 Listing dbconnections
+
+table.table.table-bordered.table-hover.table-striped
+  thead
+    tr
+      th Adapter
+      th Mode
+      th Host
+      th Port
+      th Username
+      th Password
+      th Database
+      th Encoding
+      th
+      th
+      th
+
+  tbody
+    - @dbconnections.each do |dbconnection|
+      tr
+        td = dbconnection.adapter
+        td = dbconnection.mode
+        td = dbconnection.host
+        td = dbconnection.port
+        td = dbconnection.username
+        td = dbconnection.password
+        td = dbconnection.database
+        td = dbconnection.encoding
+        td = link_to 'Show', dbconnection
+        td = link_to 'Edit', edit_dbconnection_path(dbconnection)
+        td = link_to 'Destroy', dbconnection, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Dbconnection', new_dbconnection_path

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :restconnections
+  resources :dbconnections
   resources :fulfillment_bills
   devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register', edit: 'settings' }, controllers: {
         sessions: 'users/sessions'
@@ -7,7 +9,9 @@ Rails.application.routes.draw do
   
   get 'pages/main'
   get '/home', to: 'application#home', as: 'home'
+  get '/dashboard', to: 'application#dashboard', as: 'dashboard'
   get '/billing', to: 'application#billing', as: 'billing'
+  get '/app_settings', to: 'application#app_settings', as: 'app_settings'
   
   resources :shipments
   resources :stores
@@ -15,5 +19,6 @@ Rails.application.routes.draw do
   resources :order_items
   resources :orders
   resources :users
+  resources :parts
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

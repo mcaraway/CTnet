@@ -1,0 +1,27 @@
+p#notice = notice
+
+p
+  strong Host:
+  = @restconnection.host
+p
+  strong Appname:
+  = @restconnection.appname
+p
+  strong Appid:
+  = @restconnection.appid
+p
+  strong Description:
+  = @restconnection.description
+p
+  strong Debug:
+  = @restconnection.debug
+p
+  strong Username:
+  = @restconnection.username
+p
+  strong Password:
+  = @restconnection.password
+
+= link_to 'Edit', edit_restconnection_path(@restconnection)
+'|
+= link_to 'Back', restconnections_path

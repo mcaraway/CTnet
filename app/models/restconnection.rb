@@ -1,0 +1,2 @@
+class Restconnection < ApplicationRecord
+end
