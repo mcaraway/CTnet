@@ -53,3 +53,5 @@ gem 'bootstrap-datepicker-rails'
 gem 'fishbowl', :path => "D:/Users/Michael/Documents/GitHub/fishbowl" #:git => "git://github.com/mcaraway/fishbowl.git"
 gem 'rest-client'
 gem 'mysql2'
+gem 'chartkick'
+gem 'groupdate'

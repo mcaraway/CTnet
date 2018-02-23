@@ -13,8 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
 //= require cttheme/bootstrap
 //= require cttheme/plugins/morris/morris
 //= require cttheme/plugins/morris/raphael.min
 //= require bootstrap-datepicker
+//= require highcharts
+//= require chartkick
+//= require_tree .

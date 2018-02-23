@@ -8,7 +8,15 @@
                         <a href="/billing"><i class="fa fa-fw fa-money"></i> Billing</a>
                     </li>
                     <li>
-                        <a href="<%= orders_path %>"><i class="fa fa-fw fa-bar-chart-o"></i> Orders</a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-bar-chart-o"></i> Orders <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li>
+                                <a href="<%= orders_path %>">Order List</a>
+                            </li>
+                            <li>
+                                <a href="#">Daily Chart</a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <a href="<%= parts_path %>"><i class="fa fa-fw fa-table"></i> Parts</a>
@@ -17,7 +25,7 @@
                         <a href="/app_settings"><i class="fa fa-fw fa-cog"></i> Settings</a>
                     </li>
                     <li>
-                        <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
+                        <a href="<%= stores_path %>"><i class="fa fa-fw fa-building"></i> Stores</a>
                     </li>
                     <li>
                         <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>

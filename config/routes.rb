@@ -17,8 +17,14 @@ Rails.application.routes.draw do
   resources :stores
   resources :order_item_attributes
   resources :order_items
-  resources :orders
+  resources :orders 
   resources :users
   resources :parts
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  namespace :charts do
+    get 'orders/:store_id', to: 'charts#orders'
+    get 'items_by_week'
+    get 'orders_by_week'
+    get 'parts'
+  end
 end
