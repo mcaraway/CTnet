@@ -7,23 +7,17 @@ class Order < ShipworksDbBase
   
   class << self
     def shipped_by_range(store_id, start_date, end_date)
-      rows = Rails.cache.fetch("orders") { 
-         Order.select("[order].OrderID, OrderNumber, OrderDate, [order].LocalStatus, Shipment.ShipmentCost as RollupItemQuantity, CASE [OrderItem].sku 
-            WHEN 'FT002' THEN 'FT TWO (two week pack)'
-            WHEN 'FT004' THEN 'FT FOUR (four week pack)'
-            WHEN 'FT005' THEN 'FT NEXT'
-            WHEN 'FT005-A' THEN 'FT FOUR (four week pack)'
-            WHEN 'FT006M' THEN 'Shake It Baby Matcha 10ct'
-            WHEN 'FT006V' THEN 'Shake It Baby Vanilla 10ct'
-            WHEN 'FT007M' THEN 'Shake It Baby Matcha 20ct'
-            WHEN 'FT007V' THEN 'Shake It Baby Vanilla 20ct'
-          END as RollupItemName")
+      rows = Order.select("[order].OrderID, OrderNumber, OrderDate, [order].LocalStatus, Shipment.ShipmentCost, sku, Shipment.TrackingNumber")
          .joins("JOIN Shipment on Shipment.OrderID = [order].OrderID")
          .joins("JOIN [OrderItem] on [order].OrderID = [OrderItem].OrderID")
           .where("StoreID=?", store_id)
           .where("ShipDate >= ? and ShipDate < ? and [order].LocalStatus='Shipped' and Shipment.Voided <> 1", start_date, end_date)
-      }
     end
+    
+    def shipped_by_range_sql(store_id, start_date, end_date, custom_sql)
+      rows = Order.find_by_sql([custom_sql, store_id, start_date, end_date])
+    end
+    
     def shipped_by_date(store_id, start_date, end_date)
       rows = Rails.cache.fetch("orders") { 
          Order.select("OrderDate, CASE [OrderItem].sku 
@@ -60,6 +54,7 @@ class Order < ShipworksDbBase
          .joins("JOIN [Store] on [order].StoreID = [Store].StoreID")
           .where("[order].OrderDate >= ? and [order].OrderDate <= ?", start_date, end_date)
           .where("StoreName='Flat Tummy Tea'")
+          .where("[OrderItem].sku in ('FT002','FT004','FT005','FT005-A','FT006V','FT006M','FT007V','FT007M')")
           .group("CONVERT(DATE,DATEADD(day, DATEDIFF(day, 0, OrderDate) /7*7, 0),101), [OrderItem].sku")
           .order("CONVERT(DATE,DATEADD(day, DATEDIFF(day, 0, OrderDate) /7*7, 0),101), [OrderItem].sku")
       }

@@ -15,18 +15,26 @@ table.table.table-bordered.table-hover.table-striped
       	| Shipment Cost
       th
       	| Item
+      th
+      	| SKU
+      th
+      	| Tracking
   tbody
-    - @orders.each do |order|
+    - @bill_order_infos.each do |order|
       tr
         td
-          = link_to order.OrderNumber, order
+          = order.order_number
         td
-          = order.OrderDate
+          = order.order_date
         td
-          = order.LocalStatus
+          = order.status
         td
-      	  = order.RollupItemQuantity
+      	  = order.shipment_cost
         td
-          = order.RollupItemName
+          = order.name
+        td
+          = order.sku
+        td
+          = order.tracking
 br
 = will_paginate @orders

@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'application#dashboard', as: 'dashboard'
   get '/billing', to: 'application#billing', as: 'billing'
   get '/app_settings', to: 'application#app_settings', as: 'app_settings'
+  get '/refresh_bill/:id', to: 'fulfillment_bills#refresh', as: 'refresh_bill'
+  get '/create_sales_order/:id', to: 'fulfillment_bills#create_sales_order', as: 'create_sales_order'
+  get '/create_xlsx/:id', to: 'fulfillment_bills#create_xlsx', as: 'create_xlsx'
   
   resources :shipments
   resources :stores

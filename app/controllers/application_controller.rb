@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!, except: [:home]
   
   def home
-    @parts = Part.paginate(:page => params[:page], :per_page => 50)
+    # @parts = Part.paginate(:page => params[:page], :per_page => 50)
   end  
   
   def billing

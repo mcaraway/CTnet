@@ -1,25 +1,156 @@
 p#notice = notice
 
-p
-  strong Shipworks Store Name:
-  =< @fulfillment_bill.store_name
-p
-  strong Fishbowl Customer Name:
-  =< @customer.name  
-p
-  strong Start date:
-  =< @fulfillment_bill.start_date
-p
-  strong End date:
-  =< @fulfillment_bill.end_date
+div.row
+	div.col-sm-2
+		strong Shipworks Store Name:
+  	div.col-sm-2
+  		=< @fulfillment_bill.store_name
+  	div.col-sm-8
+  		=link_to 'Edit', edit_fulfillment_bill_path(@fulfillment_bill)
+div.row  		
+  	div.col-sm-2
+  		strong Fishbowl Customer Name:
+  	div.col-sm-10
+  		=< @customer.name
+div.row
+  	div.col-sm-2
+  		strong Date Range:
+  	div.col-sm-10
+  		select id="dateRangeSelect" name="dateRangeSelect"
+  			option[value="select" name="lastWeek" selected="selected"] select
+  			option[value="lastWeek" name="lastWeek"] Last Week
+  			option[value="lastMonth" name="lastMonth"] Last Month 
+  			option[value="custom" name="custom"] Custom Date Range
+div.row id="dateRange"
+  	div.col-sm-2
+  	div.col-sm-10
+  		Start
+  		&date id="startDate" disabled=true
+  		End
+  		&date id="endDate" disabled=true
   
-= link_to 'Edit', edit_fulfillment_bill_path(@fulfillment_bill)
-'|
-= link_to 'Back', fulfillment_bills_path
+<br/>
 
-br
-.well.col-lg-6
- = render 'items_table'	
+div.row
+	div.col-sm-2
+		= link_to 'Edit', edit_fulfillment_bill_path(@fulfillment_bill)
+		'|
+		= link_to 'Back', fulfillment_bills_path
+	div.col-sm-2.form-group
+		div.btn.btn-primary.disabled id="runReport" Run Report
+	div.col-sm-2.form-group
+		div.btn.btn-primary.disabled id="createSO" Create Sales Order
+	div.col-sm-4.form-group
+		div.btn.btn-primary.disabled id="createExcel" Create Sales Report
+div.row
+	div.col-sm-12.centered
+			div.fa-3x id="loadingDiv"
+				i class="fa fa-spinner fa-spin"
+div id="show_bill"
 
-.well.col-lg-12
- = render 'order_table'
+javascript:
+	$('#loadingDiv')
+	    .hide();
+	    
+	$("#createExcel").click(function() {
+		if ($("#createExcel").hasClass ("disabled")) {
+			alert ("Please select a date");
+			return;
+		}
+		
+		var url = "/create_xlsx/#{@fulfillment_bill.id}?start_date=" + document.getElementById("startDate").value
+			+ "&end_date=" + document.getElementById("endDate").value;
+		$.ajax({url: url,
+			beforeSend: function( xhr) {
+				$('#loadingDiv').show();
+			}, 
+			done: function ( ) {
+				$('#loadingDiv').hide();
+			},
+			success: function(result){
+				$('#loadingDiv').hide();
+	    	},
+	    	failure: function(result){
+				$('#loadingDiv').hide();
+	    	}
+	    });
+	    
+	});
+	    
+	$("#createSO").click(function() {
+		if ($("#createSO").hasClass ("disabled")) {
+			alert ("Please select a date");
+			return;
+		}
+		
+		var url = "/create_sales_order/#{@fulfillment_bill.id}?start_date=" + document.getElementById("startDate").value
+			+ "&end_date=" + document.getElementById("endDate").value;
+		$.ajax({url: url,
+			beforeSend: function( xhr) {
+				$('#loadingDiv').show();
+			}, 
+			done: function ( ) {
+				$('#loadingDiv').hide();
+			},
+			success: function(result){
+				$('#loadingDiv').hide();
+	    	},
+	    	failure: function(result){
+				$('#loadingDiv').hide();
+	    	}
+	    });
+	    
+	});
+	    
+	$("#runReport").click(function() {
+		if ($("#runReport").hasClass ("disabled")) {
+			alert ("Please select a date");
+			return;
+		}
+		
+		var url = "/refresh_bill/#{@fulfillment_bill.id}?start_date=" + document.getElementById("startDate").value
+			+ "&end_date=" + document.getElementById("endDate").value;
+		$.ajax({url: url,
+			beforeSend: function( xhr) {
+				$('#loadingDiv').show();
+			}, 
+			done: function ( ) {
+				$('#loadingDiv').hide();
+			},
+			success: function(result){
+				$('#loadingDiv').hide();
+	    	},
+	    	failure: function(result){
+				$('#loadingDiv').hide();
+	    	}
+	    });
+	    
+	});
+	
+	$("#dateRangeSelect").change(function(){
+	    // document.getElementById('dateRange').className = (this.value == 'custom' ? 'row' : 'row invisible');
+	    var now = new Date();
+		var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+		var lastMonday = new Date(today.setDate(today.getDate()-today.getDay()-6));
+		today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+		var lastSunday = new Date(today.setDate(today.getDate()-today.getDay()));
+		
+		$("#startDate").prop('disabled', (this.value == 'custom' ? false : true ));
+		$("#endDate").prop('disabled', (this.value == 'custom' ? false : true ));
+		$("#runReport").toggleClass("disabled", (this.value == 'select' ? true : false ));
+		$("#createSO").toggleClass("disabled", (this.value == 'select' ? true : false ));
+		$("#createExcel").toggleClass("disabled", (this.value == 'select' ? true : false ));
+		
+	    if (this.value == 'lastWeek') {
+	    	document.getElementById("startDate").valueAsDate = lastMonday;
+	    	document.getElementById("endDate").valueAsDate = lastSunday;
+	    } else if (this.value == 'lastMonth') {
+			var thisMonthStart = new Date();
+			thisMonthStart.setDate(0);
+			var prevMonthEnd = new Date(thisMonthStart.setDate(thisMonthStart.getDate()-1));
+			var prevMonthStart = new Date(prevMonthEnd);
+			prevMonthStart.setDate(0);
+	    	document.getElementById("startDate").valueAsDate = prevMonthStart;
+	    	document.getElementById("endDate").valueAsDate = prevMonthEnd;
+	    }
+	});

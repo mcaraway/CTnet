@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180214191455) do
+ActiveRecord::Schema.define(version: 20180321023248) do
 
   create_table "dbconnections", force: :cascade do |t|
     t.string   "adapter"
@@ -29,10 +29,16 @@ ActiveRecord::Schema.define(version: 20180214191455) do
     t.string   "store_name"
     t.date     "start_date"
     t.date     "end_date"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
     t.integer  "customer_id"
     t.integer  "store_id"
+    t.boolean  "include_fulfillment_charge", default: true
+    t.boolean  "include_usps_charge",        default: true
+    t.string   "custom_sql"
+    t.string   "custom_fulfillment_sql"
+    t.string   "custom_shipping_charge_sql"
+    t.string   "custom_order_list_sql"
   end
 
   create_table "restconnections", force: :cascade do |t|

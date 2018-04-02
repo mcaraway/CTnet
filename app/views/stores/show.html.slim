@@ -4,7 +4,7 @@ p#notice = notice
     = @store.StoreName 
   
 h2 Orders by Week
-= line_chart charts_orders_by_week_path
+= line_chart charts_orders_by_week_path, download: true
 
 h2 Items by Week
-= line_chart charts_items_by_week_path, height: "500px"
+= column_chart charts_items_by_week_path, stacked: true, download: true, legend: "bottom"

@@ -3,32 +3,8 @@ h1 <i class="fa fa-money fa-fw"></i> Billing
 .col-sm-4
 	.list-group
 		- @fulfillment_bills.each do |fulfillment_bill|
-			a.list-group-item href= edit_fulfillment_bill_path(fulfillment_bill)
-				h4.list-group-item-heading Run Billing for fulfillment_bill.store_name
+			a.list-group-item href= fulfillment_bill_path(fulfillment_bill)
+				h4.list-group-item-heading Run Billing for #{fulfillment_bill.store_name}
 				p.list-group-item-text Run weekly billing reports.  
-
-
-
-table.table.table-bordered.table-hover.table-striped
-  thead
-    tr
-      th Store name
-      th Start date
-      th End date
-      th
-      th
-      th
-
-  tbody
-    - @fulfillment_bills.each do |fulfillment_bill|
-      tr
-        td = fulfillment_bill.store_name
-        td = fulfillment_bill.start_date
-        td = fulfillment_bill.end_date
-        td = link_to 'Show', fulfillment_bill
-        td = link_to 'Edit', edit_fulfillment_bill_path(fulfillment_bill)
-        td = link_to 'Destroy', fulfillment_bill, data: { confirm: 'Are you sure?' }, method: :delete
-
-br
-
-= link_to 'New Fulfillment bill', new_fulfillment_bill_path
+.col-sm-12
+	= link_to 'New Fulfillment bill', new_fulfillment_bill_path

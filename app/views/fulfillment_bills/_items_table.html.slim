@@ -5,29 +5,24 @@ table.table.table-bordered.table-hover.table-striped
       th
         | Name
       th
-        | Sum
+        | Description
+      th
+      	| SKU
+      th
+        | Quantity
+      th
+        | Price
   tbody
-    - @order_item_counts.each do |order_item|
+    - @bill_items.each do |bill_item|
       tr
         td
-          = order_item.name
+          = bill_item.name
         td
-          = order_item.quantity
-    tr
-   	  td
-   		| fulfillment - per unit
-   	  td
-   		=@shipment_count
-    tr
-   	  td
-   		| USPS Shipping<br/>
-   		  Dates:&nbsp;
-   		= @fulfillment_bill.start_date
-   		| &nbsp; to &nbsp;
-   		= @fulfillment_bill.end_date
-   		| <br/> 
-   		| Count:&nbsp;
-   		= @usps_count
-   	  td
-   		=@usps_cost
+          = bill_item.description
+        td
+          = bill_item.sku
+        td
+          = bill_item.quantity
+        td
+          = bill_item.price
 br

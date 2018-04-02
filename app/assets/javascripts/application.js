@@ -17,6 +17,6 @@
 //= require cttheme/plugins/morris/morris
 //= require cttheme/plugins/morris/raphael.min
 //= require bootstrap-datepicker
-//= require highcharts
+//= require Chart.bundle
 //= require chartkick
 //= require_tree .

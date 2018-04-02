@@ -8,11 +8,40 @@
 
   .field
     = f.label "Store"
-    = f.select :store_id, options_from_collection_for_select(@stores, "StoreID", "StoreName")
+    =< f.collection_select :store_id, @stores, :StoreID, :StoreName, prompt: true
   .field
     = f.label :start_date
-    = f.date_field :start_date
+    =< f.date_field :start_date
   .field
     = f.label :end_date
-    = f.date_field :end_date
+    =< f.date_field :end_date
+  .field
+    = f.label :customer_id
+    =< f.collection_select :customer_id, @customers, :id, :name, prompt: true
+  .field
+  	= f.check_box :include_fulfillment_charge
+  	=< f.label :include_fulfillment_charge
+  .field
+  	= f.check_box :include_usps_charge  
+  	=< f.label :include_usps_charge	
+  .field
+    = f.label :custom_sql
+    =< f.text_area :custom_sql, cols: 100, rows: 10
+  .p.strong * Be sure to include store_id, start_date, end_date as where parameters like this "WHERE StoreID=?  AND ShipDate >= ? and ShipDate < ?"
+  
+  .field
+    = f.label :custom_fulfillment_sql
+    =< f.text_area :custom_fulfillment_sql, cols: 100, rows: 10
+  .p.strong * Be sure to include store_id, start_date, end_date as where parameters like this "WHERE StoreID=?  AND ShipDate >= ? and ShipDate < ?"
+    
+  .field
+    = f.label :custom_shipping_charge_sql
+    =< f.text_area :custom_shipping_charge_sql, cols: 100, rows: 10
+  .p.strong * Be sure to include store_id, start_date, end_date as where parameters like this "WHERE StoreID=?  AND ShipDate >= ? and ShipDate < ?"
+  .field
+    = f.label :custom_order_list_sql
+    =< f.text_area :custom_order_list_sql, cols: 100, rows: 10
+  .p.strong * Be sure to include store_id, start_date, end_date as where parameters like this "WHERE StoreID=?  AND ShipDate >= ? and ShipDate < ?"
+  
+  <br>
   .actions = f.submit
