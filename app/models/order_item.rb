@@ -15,7 +15,7 @@ class OrderItem < ShipworksDbBase
          .joins("JOIN Shipment on Shipment.OrderID = [Order].OrderID")
           .where("StoreID=?", store_id)
           .where("ShipDate >= ? and ShipDate < ? and [Order].LocalStatus='Shipped' and Shipment.Voided <> 1", start_date, end_date)
-          .group("sku")
+          .group("sku, name")
           .order("name")
       # rows = OrderItem.select("CASE sku 
             # WHEN 'FT002' THEN 'FTT 2W Complete'

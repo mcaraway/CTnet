@@ -4,7 +4,7 @@ h1 <i class="fa fa-money fa-fw"></i> Billing
 	.list-group
 		- @fulfillment_bills.each do |fulfillment_bill|
 			a.list-group-item href= fulfillment_bill_path(fulfillment_bill)
-				h4.list-group-item-heading Run Billing for #{fulfillment_bill.store_name}
+				h4.list-group-item-heading #{fulfillment_bill.customer_name}
 				p.list-group-item-text Run weekly billing reports.  
 .col-sm-12
 	= link_to 'New Fulfillment bill', new_fulfillment_bill_path

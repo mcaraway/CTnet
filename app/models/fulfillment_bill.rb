@@ -1,6 +1,18 @@
 require 'axlsx'
 class FulfillmentBill < ApplicationRecord
   
+  def description
+    store_name + " to " + customer_name  
+  end
+  
+  def customer_name
+    if @customer_name.nil?
+      customer = Customer.find(customer_id)
+      @customer_name = customer.nil? ? 'Unknown' : customer.name
+    end
+    @customer_name
+  end
+  
   def save_to_xlsx(start_date, end_date)
     @start_date = Date.parse(start_date)
     @end_date = Date.parse(end_date)
