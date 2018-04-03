@@ -116,8 +116,8 @@ class FulfillmentBillsController < ApplicationController
       @end_date = Date.parse(end_date)
       @store = Store.find(@fulfillment_bill.store_id)
       @customer = get_customer(@fulfillment_bill.customer_id)
-      @orders = Order.shipped_by_range(@fulfillment_bill.store_id,@start_date,@end_date)
-        .paginate(:page => params[:page], :per_page => 20)
+      @orders = @fulfillment_bill.custom_order_list_sql.nil? ? Order.shipped_by_range(@fulfillment_bill.store_id,@start_date,@end_date,params[:page],20)
+        : Order.shipped_by_range_sql(@fulfillment_bill.store_id,@start_date,@end_date,@fulfillment_bill.custom_order_list_sql,params[:page],20)
       @bill_order_infos = BillOrderInfo.generate_array(@orders)
       @bill_items = @fulfillment_bill.get_bill_items(@start_date, @end_date)
     end

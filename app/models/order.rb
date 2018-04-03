@@ -6,16 +6,23 @@ class Order < ShipworksDbBase
   has_many :shipments
   
   class << self
-    def shipped_by_range(store_id, start_date, end_date)
+    def shipped_by_range(store_id, start_date, end_date, page = 1, per_page = 100)
       rows = Order.select("[order].OrderID, OrderNumber, OrderDate, [order].LocalStatus, Shipment.ShipmentCost, sku, Shipment.TrackingNumber")
          .joins("JOIN Shipment on Shipment.OrderID = [order].OrderID")
          .joins("JOIN [OrderItem] on [order].OrderID = [OrderItem].OrderID")
           .where("StoreID=?", store_id)
           .where("ShipDate >= ? and ShipDate < ? and [order].LocalStatus='Shipped' and Shipment.Voided <> 1", start_date, end_date)
+          .paginate(:page => page, :per_page => per_page)
     end
     
-    def shipped_by_range_sql(store_id, start_date, end_date, custom_sql)
-      rows = Order.find_by_sql([custom_sql, store_id, start_date, end_date])
+    def shipped_by_range_sql(store_id, start_date, end_date, custom_sql, page = 1, per_page = 20)
+      rows = Order.select("[order].OrderID, OrderNumber, OrderDate, [order].LocalStatus, Shipment.ShipmentCost, sku, Shipment.TrackingNumber")
+         .joins("JOIN Shipment on Shipment.OrderID = [order].OrderID")
+         .joins("JOIN [OrderItem] on [order].OrderID = [OrderItem].OrderID")
+          .where("StoreID=?", store_id)
+          .where("ShipDate >= ? and ShipDate < ? and [order].LocalStatus='Shipped' and Shipment.Voided <> 1", start_date, end_date)
+          .where(custom_sql)
+          .paginate(:page => page, :per_page => per_page)
     end
     
     def shipped_by_date(store_id, start_date, end_date)
