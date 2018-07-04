@@ -1,0 +1,23 @@
+h1 Listing estimates
+
+table
+  thead
+    tr
+      th Name
+      th Customer
+      th
+      th
+      th
+
+  tbody
+    - @estimates.each do |estimate|
+      tr
+        td = estimate.name
+        td = estimate.customer
+        td = link_to 'Show', estimate
+        td = link_to 'Edit', edit_estimate_path(estimate)
+        td = link_to 'Destroy', estimate, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Estimate', new_estimate_path

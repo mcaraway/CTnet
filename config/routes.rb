@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :estimates
   resources :restconnections
   resources :dbconnections
   resources :fulfillment_bills

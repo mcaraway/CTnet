@@ -1,0 +1,56 @@
+= form_for @estimate do |f|
+  - if @estimate.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@estimate.errors.count, "error")} prohibited this estimate from being saved:"
+      ul
+        - @estimate.errors.full_messages.each do |message|
+          li = message
+  div.row  		
+    div.col-sm-2
+      .field
+        = f.label :name 
+    div.col-sm-10
+        =< f.text_field :name
+  div.row  		
+    div.col-sm-2
+      .field
+    	= f.label :customer
+    div.col-sm-10
+        =< f.text_field :customer
+  div.row  		
+    div.col-sm-2
+      .field
+        = f.label :notes
+    div.col-sm-10
+        =< f.text_area :notes, cols: 100, rows: 10
+  div.row  		
+    div.col-sm-2
+      .field
+        = f.label :item_count
+    div.col-sm-10
+        =< f.text_field :item_count
+  div.row  		
+    div.col-sm-2
+      .field
+        = f.label :item_variations
+    div.col-sm-10
+        =< f.text_field :item_variations  
+  div.row  		
+    div.col-sm-2
+      .field
+        = f.label :unit_weight
+    div.col-sm-10
+        =< f.text_field :unit_weight
+  div.row  		
+    div.col-sm-2
+      .field
+        = f.label :discount
+    div.col-sm-10
+        =< f.text_field :discount
+  .field
+    = f.check_box :include_case 
+    =< f.label :include_case
+  .field
+    = f.check_box :include_master_case  
+    =< f.label :include_master_case 
+  .actions = f.submit

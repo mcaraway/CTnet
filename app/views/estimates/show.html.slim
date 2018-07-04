@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @estimate.name
+p
+  strong Customer:
+  = @estimate.customer
+
+= link_to 'Edit', edit_estimate_path(@estimate)
+'|
+= link_to 'Back', estimates_path

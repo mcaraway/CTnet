@@ -4,7 +4,8 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+#gem 'sqlite3', git: "https://github.com/larskanis/sqlite3-ruby", branch: "add-gemspec"
+gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -45,14 +46,14 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bcrypt', '3.1.11', platforms: [:ruby, :x64_mingw]
-gem 'tiny_tds'
+gem 'tiny_tds', :git => 'https://github.com/rails-sqlserver/tiny_tds'
 gem 'activerecord-sqlserver-adapter'
 gem 'devise'
 gem 'will_paginate'
 gem 'bootstrap-datepicker-rails'
-gem 'fishbowl', :path => "e:/rails_apps/fishbowl" #:git => "git://github.com/mcaraway/fishbowl.git"
+gem 'fishbowl', :path => "c:/rails_apps/fishbowl" #:git => "git://github.com/mcaraway/fishbowl.git"
 gem 'rest-client'
-gem 'mysql2', :platforms => [:x64_mingw, :ruby]
+gem 'mysql2', '0.4.10', :platforms => [:x64_mingw, :ruby]
 gem 'chartkick'
 gem 'groupdate'
 gem 'axlsx'

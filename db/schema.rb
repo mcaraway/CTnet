@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180321023248) do
+ActiveRecord::Schema.define(version: 20180612144701) do
 
   create_table "dbconnections", force: :cascade do |t|
     t.string   "adapter"
@@ -23,6 +23,21 @@ ActiveRecord::Schema.define(version: 20180321023248) do
     t.string   "encoding"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "estimates", force: :cascade do |t|
+    t.string   "name"
+    t.string   "customer"
+    t.integer  "customer_id"
+    t.string   "notes"
+    t.integer  "item_count"
+    t.integer  "item_variations",     default: 1
+    t.boolean  "include_case",        default: true
+    t.boolean  "include_master_case", default: false
+    t.float    "unit_weight"
+    t.float    "discount",            default: 0.0
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   create_table "fulfillment_bills", force: :cascade do |t|
