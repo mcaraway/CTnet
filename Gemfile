@@ -48,15 +48,16 @@ end
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # gem 'bcrypt', '3.1.11', platforms: [:ruby, :x64_mingw]
 # gem 'fishbowl', :path => "c:/rails_apps/fishbowl" 
+# gem 'tiny_tds', :git => 'https://github.com/rails-sqlserver/tiny_tds'
 
 #Unix Versions
 gem 'mysql2', '0.4.10'
 gem 'tzinfo-data'
 gem 'bcrypt', '3.1.11'
 gem 'fishbowl',:git => "git://github.com/mcaraway/fishbowl.git"
+gem 'tiny_tds'
 
 
-gem 'tiny_tds', :git => 'https://github.com/rails-sqlserver/tiny_tds'
 gem 'activerecord-sqlserver-adapter'
 gem 'devise'
 gem 'will_paginate'
