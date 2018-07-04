@@ -43,17 +43,25 @@ group :development do
   gem 'web-console'
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'bcrypt', '3.1.11', platforms: [:ruby, :x64_mingw]
+#Windows Versions
+# gem 'mysql2', '0.4.10', :platforms => [:x64_mingw, :ruby]
+# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# gem 'bcrypt', '3.1.11', platforms: [:ruby, :x64_mingw]
+# gem 'fishbowl', :path => "c:/rails_apps/fishbowl" 
+
+#Unix Versions
+gem 'mysql2', '0.4.10'
+gem 'tzinfo-data'
+gem 'bcrypt', '3.1.11'
+gem 'fishbowl',:git => "git://github.com/mcaraway/fishbowl.git"
+
+
 gem 'tiny_tds', :git => 'https://github.com/rails-sqlserver/tiny_tds'
 gem 'activerecord-sqlserver-adapter'
 gem 'devise'
 gem 'will_paginate'
 gem 'bootstrap-datepicker-rails'
-gem 'fishbowl', :path => "c:/rails_apps/fishbowl" #:git => "git://github.com/mcaraway/fishbowl.git"
 gem 'rest-client'
-gem 'mysql2', '0.4.10', :platforms => [:x64_mingw, :ruby]
 gem 'chartkick'
 gem 'groupdate'
 gem 'axlsx'
