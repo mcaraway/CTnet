@@ -1,9 +1,3 @@
-GIT
-  remote: https://github.com/rails-sqlserver/tiny_tds
-  revision: 7b6efb28925ede5364b88eaf70237ff7d5058ae6
-  specs:
-    tiny_tds (2.1.1)
-
 PATH
   remote: c:/rails_apps/fishbowl
   specs:
@@ -61,7 +55,7 @@ GEM
       htmlentities (~> 4.3.1)
       nokogiri (>= 1.4.1)
       rubyzip (~> 1.0.0)
-    bcrypt (3.1.11-x64-mingw32)
+    bcrypt (3.1.12-x64-mingw32)
     bindex (0.5.0)
     bootstrap-datepicker-rails (1.8.0.1)
       railties (>= 3.0)
@@ -196,6 +190,7 @@ GEM
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
+    tiny_tds (2.1.2-x64-mingw32)
     turbolinks (5.1.1)
       turbolinks-source (~> 5.1)
     turbolinks-source (5.1.0)
@@ -226,7 +221,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord-sqlserver-adapter
   axlsx
-  bcrypt (= 3.1.11)
+  bcrypt (= 3.1.12)
   bootstrap-datepicker-rails
   bootstrap-sass (= 3.3.7)
   byebug
@@ -244,7 +239,7 @@ DEPENDENCIES
   rest-client
   sass-rails (~> 5.0)
   slim-rails (= 3.1.0)
-  tiny_tds!
+  tiny_tds
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
@@ -252,4 +247,4 @@ DEPENDENCIES
   will_paginate
 
 BUNDLED WITH
-   1.16.1
+   1.16.2
