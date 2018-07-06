@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.0'
+gem 'rails', '~> 5.1.0'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3', git: "https://github.com/larskanis/sqlite3-ruby", branch: "add-gemspec"
 gem 'pg'
@@ -56,7 +56,7 @@ gem 'bcrypt', '3.1.12'
 gem 'fishbowl',:git => "git://github.com/mcaraway/fishbowl.git"
 
 gem 'tiny_tds'
-gem 'activerecord-sqlserver-adapter'
+gem 'activerecord-sqlserver-adapter','5.1.6'
 gem 'devise'
 gem 'will_paginate'
 gem 'bootstrap-datepicker-rails'
