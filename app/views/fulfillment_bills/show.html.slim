@@ -20,6 +20,7 @@ div.row
   			option[value="select" name="lastWeek" selected="selected"] select
   			option[value="lastWeek" name="lastWeek"] Last Week
   			option[value="lastMonth" name="lastMonth"] Last Month 
+  			option[value="thisWeek" name="lastWeek"] This Week
   			option[value="custom" name="custom"] Custom Date Range
 div.row id="dateRange"
   	div.col-sm-2
@@ -132,8 +133,10 @@ javascript:
 	    var now = new Date();
 		var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 		var lastMonday = new Date(today.setDate(today.getDate()-today.getDay()-6));
+		var thisMonday = new Date(today.setDate(today.getDate()-today.getDay()+1));
 		today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 		var lastSunday = new Date(today.setDate(today.getDate()-today.getDay()));
+		var thisSunday = new Date(today.setDate(today.getDate()-today.getDay()+7));
 		
 		$("#startDate").prop('disabled', (this.value == 'custom' ? false : true ));
 		$("#endDate").prop('disabled', (this.value == 'custom' ? false : true ));
@@ -144,6 +147,9 @@ javascript:
 	    if (this.value == 'lastWeek') {
 	    	document.getElementById("startDate").valueAsDate = lastMonday;
 	    	document.getElementById("endDate").valueAsDate = lastSunday;
+	    } else if (this.value == 'thisWeek') {
+	    	document.getElementById("startDate").valueAsDate = thisMonday;
+	    	document.getElementById("endDate").valueAsDate = thisSunday;
 	    } else if (this.value == 'lastMonth') {
 			var thisMonthStart = new Date();
 			thisMonthStart.setDate(0);
