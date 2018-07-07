@@ -1,6 +1,5 @@
-GIT
-  remote: git://github.com/mcaraway/fishbowl.git
-  revision: 32ed05919fbdc849a188f8fb3af9de06de602bf1
+PATH
+  remote: c:/rails_apps/fishbowl
   specs:
     fishbowl (1.0)
       nokogiri (~> 1.7)
