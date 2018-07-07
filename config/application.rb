@@ -13,6 +13,7 @@ module CTnet
     # -- all .rb files in that directory are automatically loaded.
     config.encoding = "utf-8"
     config.serve_static_assets = true
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
     config.before_configuration do
       env_file = File.join(Rails.root, 'config', 'local_env.yml')
       YAML.load(File.open(env_file)).each do |key, value|
