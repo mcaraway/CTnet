@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :sales_orders
   resources :estimates
   resources :restconnections
   resources :dbconnections
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
   get '/refresh_bill/:id', to: 'fulfillment_bills#refresh', as: 'refresh_bill'
   get '/create_sales_order/:id', to: 'fulfillment_bills#create_sales_order', as: 'create_sales_order'
   get '/create_xlsx/:id', to: 'fulfillment_bills#create_xlsx', as: 'create_xlsx'
+  # get '/inventory', to: 'inventory#index', as: 'inventory'
   
   resources :shipments
   resources :stores
@@ -24,6 +26,7 @@ Rails.application.routes.draw do
   resources :orders 
   resources :users
   resources :parts
+  resources :inventory
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :charts do
     get 'orders/:store_id', to: 'charts#orders'

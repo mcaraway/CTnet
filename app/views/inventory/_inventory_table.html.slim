@@ -1,0 +1,28 @@
+br
+table class="table table-bordered table-hover table-striped"
+  thead
+    tr
+      th
+        | Product
+      th
+        | Description
+      th
+        | Quantity
+      th
+        | Unit of Measure
+      th
+        | Lot #
+  tbody
+    - @inventory_items.each do |item|
+      tr
+      	td
+          = item.product_number
+        td
+          = item.product_description
+        td
+          = item.quantity
+        td
+          = item.uom
+        td
+          = item.lot
+br

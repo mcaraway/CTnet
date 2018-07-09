@@ -1,32 +1,5 @@
-            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
-                    <li class="active">
-                        <a href="<%= fulfillment_bills_path %>"><i class="fa fa-fw fa-money"></i> Billing</a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-bar-chart-o"></i> Orders <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse">
-                            <li>
-                                <a href="<%= orders_path %>">Order List</a>
-                            </li>
-                            <li>
-                                <a href="#">Daily Chart</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="<%= parts_path %>"><i class="fa fa-fw fa-table"></i> Parts</a>
-                    </li>
-                    <li>
-                        <a href="<%= stores_path %>"><i class="fa fa-fw fa-building"></i> Stores</a>
-                    </li>
-                    <li>
-                        <a href="<%= estimates_path %>"><i class="fa fa-fw fa-simplybuilt"></i> Estimates</a>
-                    </li>
-                    <li>
-                        <a href="/app_settings"><i class="fa fa-fw fa-cog"></i> Settings</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+<% if current_user.customer? %>
+	<%= render :partial =>'layouts/customer_sidenav' %>
+<% else %>
+	<%= render :partial =>'layouts/user_sidenav' %>
+<% end %>

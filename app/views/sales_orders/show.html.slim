@@ -1,0 +1,18 @@
+p#notice = notice
+p#notice = notice
+.text-center
+  h1 
+    = @sales_order.num 
+
+div.row
+	div.col-sm-2
+		strong Sales Order Number:
+  	div.col-sm-2
+  		=< @sales_order.num 
+div.row  		
+  	div.col-sm-2
+  		strong Customer Name:
+  	div.col-sm-10
+  		=< @sales_order.customerContact
+  		  		
+= link_to 'Back', sales_orders_path

@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :admin_only, except: [:show, :edit]
+  before_action :preload_product_trees
 
   # GET /users
   # GET /users.json
@@ -67,8 +69,19 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
+    def admin_only
+      unless current_user.admin?
+        redirect_to root_path, :alert => "Access denied."
+      end
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email)
+      params.require(:user).permit(:name, :email, :role, :product_tree_id, :customer_id)
     end
+    
+    def preload_product_trees
+      @product_trees = ProductTree.all_cached
+      @customers = Customer.all
+    end    
 end
