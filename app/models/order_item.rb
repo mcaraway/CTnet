@@ -6,10 +6,12 @@ class OrderItem < ShipworksDbBase
   class << self
  
     def shipped_by_range_counts_with_sql(store_id, start_date, end_date, custom_sql)
+      puts "shipped_by_range_counts_with_sql started......"
       rows = OrderItem.find_by_sql([custom_sql, store_id, start_date, end_date])
     end
     
     def shipped_by_range_counts(store_id, start_date, end_date)
+      puts "shipped_by_range_counts started......"
       rows = OrderItem.select("sku, name, sum(quantity) as quantity")
          .joins("JOIN [Order] on [Order].OrderID = [OrderItem].OrderID")
          .joins("JOIN Shipment on Shipment.OrderID = [Order].OrderID")

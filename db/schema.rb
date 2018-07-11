@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180708171032) do
+ActiveRecord::Schema.define(version: 20180711013945) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20180708171032) do
     t.string "custom_fulfillment_sql"
     t.string "custom_shipping_charge_sql"
     t.string "custom_order_list_sql"
+    t.boolean "use_custom_sql", default: false
   end
 
   create_table "restconnections", id: :serial, force: :cascade do |t|

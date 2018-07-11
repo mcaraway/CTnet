@@ -61,8 +61,9 @@ class FulfillmentBill < ApplicationRecord
   end
   
   def get_bill_items(start_date, end_date)
-      order_items = custom_sql.nil? ? OrderItem.shipped_by_range_counts(store_id,start_date,end_date)
-        : OrderItem.shipped_by_range_counts_with_sql(store_id,start_date,end_date, custom_sql)
+      puts "get_bill_items started......"
+      order_items = use_custom_sql ? OrderItem.shipped_by_range_counts_with_sql(store_id,start_date,end_date, custom_sql) :
+        OrderItem.shipped_by_range_counts(store_id,start_date,end_date)
       bill_items = BillItem.generate_array(order_items)
       if include_fulfillment_charge then
         fulfillment_product = Product.find_by sku: "FULFILLMENT"

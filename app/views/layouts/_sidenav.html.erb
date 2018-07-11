@@ -1,4 +1,6 @@
-<% if current_user.customer? %>
+<% if current_user.nil? %>
+	<%= render :partial =>'layouts/user_sidenav' %>
+<% elsif current_user.customer? %>
 	<%= render :partial =>'layouts/customer_sidenav' %>
 <% else %>
 	<%= render :partial =>'layouts/user_sidenav' %>

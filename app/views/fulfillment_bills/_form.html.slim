@@ -25,6 +25,9 @@
   	= f.check_box :include_usps_charge  
   	=< f.label :include_usps_charge	
   .field
+  	= f.check_box :use_custom_sql  
+  	=< f.label :use_custom_sql	
+  .field
     = f.label :custom_sql
     =< f.text_area :custom_sql, cols: 100, rows: 10
   .p.strong * Be sure to include store_id, start_date, end_date as where parameters like this "WHERE StoreID=?  AND ShipDate >= ? and ShipDate < ?"

@@ -17,7 +17,6 @@ Rails.application.routes.draw do
   get '/refresh_bill/:id', to: 'fulfillment_bills#refresh', as: 'refresh_bill'
   get '/create_sales_order/:id', to: 'fulfillment_bills#create_sales_order', as: 'create_sales_order'
   get '/create_xlsx/:id', to: 'fulfillment_bills#create_xlsx', as: 'create_xlsx'
-  # get '/inventory', to: 'inventory#index', as: 'inventory'
   
   resources :shipments
   resources :stores

@@ -11,6 +11,7 @@ class BillItem
 	
   class << self	
   	def generate_array(order_item_counts)
+  	  puts "Generating bill_items for #{order_item_counts.size}"
   	  bill_items = Array.new
   	  order_item_counts.each do |order_item| 
   	    product = Product.find_by sku: order_item.sku
