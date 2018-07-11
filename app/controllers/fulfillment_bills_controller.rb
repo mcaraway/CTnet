@@ -38,7 +38,7 @@ class FulfillmentBillsController < ApplicationController
     # puts("xml for customer #{@customer.to_xml(:skip_instruct => true, :except => [ :id ])}")
     sales_order = {}
     rows = []
-    row = %Q["SO",,20,"#{@customer.name}","#{@customer.name}",#{address.to_string},#{address.to_string},"Will Call","None",30]
+    row = %Q["SO",,20,"#{@customer.name}","#{@customer.name}",#{address.to_string},#{address.to_string},false,"Will Call","None",30]
     rows << row
     # sales_order[:salesman] = "ctnet"
     # sales_order[:status] = 10
