@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :admin_only, except: [:show, :edit]
   before_action :preload_product_trees
 
   # GET /users
