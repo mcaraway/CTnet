@@ -12,13 +12,13 @@ class OrderItem < ShipworksDbBase
     
     def shipped_by_range_counts(store_id, start_date, end_date)
       puts "shipped_by_range_counts started......"
-      rows = OrderItem.select("sku, name, sum(quantity) as quantity")
+      rows = OrderItem.select("sku, sum(quantity) as quantity")
          .joins("JOIN [Order] on [Order].OrderID = [OrderItem].OrderID")
          .joins("JOIN Shipment on Shipment.OrderID = [Order].OrderID")
           .where("StoreID=?", store_id)
           .where("ShipDate >= ? and ShipDate < ? and [Order].LocalStatus='Shipped' and Shipment.Voided <> 1", start_date, end_date)
-          .group("sku, name")
-          .order("name")
+          .group("sku")
+          .order("sku")
       # rows = OrderItem.select("CASE sku 
             # WHEN 'FT002' THEN 'FTT 2W Complete'
             # WHEN 'FT004' THEN 'FTT 4W Complete'

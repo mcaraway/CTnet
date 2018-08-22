@@ -17,7 +17,7 @@ class BillItem
   	    product = Product.find_by sku: order_item.sku
   	    if !product.nil? then
     	    uom = Uom.find_by id: product.uomId
-    	    bill_items << BillItem.new(product.num, order_item.name, order_item.sku, order_item.quantity, product.price, uom.code)
+    	    bill_items << BillItem.new(product.num, product.num, order_item.sku, order_item.quantity, product.price, uom.code)
   	    end
   	  end
   	  bill_items

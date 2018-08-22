@@ -1,22 +1,19 @@
 <td>
   <%= link_to user.email, user %>
 </td>
-
+  <td>
 <%= form_for(user) do |f| %>
-  <td>
-    <%= f.select(:role, User.roles.keys.map {|role| [role.titleize,role]}) %>
-  </td>
-  <td>
-  	<%= f.collection_select(:customer_id, @customers, :id, :name, prompt: true )%>
-  </td>
-  <td>
-  	<%= f.collection_select(:product_tree_id, @product_trees, :id, :name, prompt: true )%>
-  </td>
-  <td>
-    <%= f.submit 'Save Changes', :class => 'button-xs' %>
-  </td>
-<% end %>
 
+    <%= f.select(:role, User.roles.keys.map {|role| [role.titleize,role]}) %>
+
+  	<%= f.collection_select(:customer_id, @customers, :id, :name, prompt: true )%>
+
+  	<%= f.collection_select(:product_tree_id, @product_trees, :id, :name, prompt: true )%>
+
+    <%= f.submit 'Save Changes', :class => 'button-xs' %>
+
+<% end %>
+  </td>
 <td>
   <%= link_to("Delete user", user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'button-xs') unless user == current_user %>
 </td>
