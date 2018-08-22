@@ -22,11 +22,9 @@
 	                <li>
 	                    <a href="<%= edit_user_path(current_user.id) %>"><i class="fa fa-fw fa-user"></i> Profile</a>
 	                </li>
-	                <% if current_user.admin? %>
 	                <li>
 	                    <a href="<%= users_path %>"><i class="fa fa-fw fa-users"></i> Edit Users</a>
 	                </li>
-	                <% end %>
 	                <li class="divider"></li>
 	                <li>
 	                    <a href="<%= destroy_user_session_path(method: :delete) %>"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
