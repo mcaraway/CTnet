@@ -14,7 +14,9 @@
   <body>
   	<div id="wrapper">
 	    <%= render :partial =>'layouts/navbar' %>
+	    <% if !current_user.nil? %>
 	    <%= render :partial =>'layouts/sidenav' %>
+	    <% end %>
 	    <div id="page-wrapper">
             <div class="container-fluid">
 			  	<p class="notice"><%= notice %></p>
