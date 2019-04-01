@@ -1,0 +1,38 @@
+= will_paginate @mos
+br
+table class="table table-bordered table-hover table-striped"
+  thead
+    tr
+      th
+        | Id
+      th
+        | Status
+      th
+        | Date Scheduled
+      th
+        | MO Num
+      th
+        | SO Num
+      th
+        | SO Note
+      th
+        | Customer
+  tbody
+    - @mos.each do |mo|
+      tr 
+        td
+          = link_to mo.id, mo
+        td class='#{mo.status}'
+          = mo.status
+        td
+          = mo.dateScheduled.in_time_zone('Eastern Time (US & Canada)').strftime('%B %d, %y')
+        td
+          = mo.monum
+        td
+          = mo.sonum
+        td
+          = mo.note
+        td
+          = mo.cust_name
+br
+= will_paginate @mos

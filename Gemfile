@@ -44,16 +44,16 @@ group :development do
 end
 
 # #Windows Versions
-# gem 'mysql2', '0.4.10', :platforms => [:x64_mingw, :ruby]
-# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-# gem 'bcrypt', '3.1.12', platforms: [:ruby, :x64_mingw]
-# gem 'fishbowl', :path => "c:/rails_apps/fishbowl" 
+gem 'mysql2', '0.4.10', :platforms => [:x64_mingw, :ruby]
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'bcrypt', '3.1.12', platforms: [:ruby, :x64_mingw]
+gem 'fishbowl', :path => "c:/rails_apps/fishbowl" 
 
 #Unix Versions
-gem 'mysql2', '0.4.10'
-gem 'tzinfo-data'
-gem 'bcrypt', '3.1.12'
-gem 'fishbowl',:git => "git://github.com/mcaraway/fishbowl.git"
+# gem 'mysql2', '0.4.10'
+# gem 'tzinfo-data'
+# gem 'bcrypt', '3.1.12'
+# gem 'fishbowl',:git => "git://github.com/mcaraway/fishbowl.git"
 
 gem 'tiny_tds'
 gem 'activerecord-sqlserver-adapter','5.1.6'

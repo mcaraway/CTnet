@@ -25,12 +25,13 @@ Rails.application.routes.draw do
   resources :orders 
   resources :users
   resources :parts
+  resources :manufacturing_orders
   resources :inventory
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :charts do
     get 'orders/:store_id', to: 'charts#orders'
-    get 'items_by_week'
-    get 'orders_by_week'
+    get 'items_by_week', to: '#items_by_week', as: 'items_by_week'
+    get 'orders_by_week', to: '#orders_by_week', as: 'orders_by_week'
     get 'parts'
   end
 end

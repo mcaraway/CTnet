@@ -3,6 +3,8 @@ table.table.table-bordered.table-hover.table-striped
   thead
     tr
       th
+        | Status
+      th
         | Name
       th
       	| SKU
@@ -13,6 +15,8 @@ table.table.table-bordered.table-hover.table-striped
   tbody
     - @bill_items.each do |bill_item|
       tr
+        td class='#{bill_item.fishbowl_status}'
+          = bill_item.fishbowl_status
         td
           = bill_item.name
         td

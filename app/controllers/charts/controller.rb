@@ -1,4 +1,4 @@
-class ChartsController < ApplicationController
+class Charts::Controller < ApplicationController
   def orders
     render json: Order.shipped_by_date(params[:store_id],Date.today - 180,Date.today+1)
   end
@@ -9,7 +9,7 @@ class ChartsController < ApplicationController
       .map { |order|
         {name: order.sku, data: {order.week => order.quantity}}
     })
-      # .inject(Hash.new(0)){|hash,key| 
+      # .inject(Hash. new(0)){|hash,key| 
         # hash[key[:name]] = key[:data];hash
       # }
     # .group_by {|x| x[:name]}
@@ -20,8 +20,9 @@ class ChartsController < ApplicationController
   
   def orders_by_week
     orders = Order.orders_by_week(params[:store_id],Date.today - 180,Date.today+1).inject(Hash.new(0)){|h,k| k.week; h[k.week] += k.quantity;h}
+    items = Order.items_by_week(params[:store_id],Date.today - 180,Date.today+1).inject(Hash.new(0)){|h,k| k.week; h[k.week] += k.quantity;h}
     
-    render json: orders
+    render json: [{name: '# Items', data: items},{name: '# Orders', data: orders}].chart_json
   end
   
   def parts

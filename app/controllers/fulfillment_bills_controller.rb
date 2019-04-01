@@ -44,7 +44,9 @@ class FulfillmentBillsController < ApplicationController
     # sales_order[:status] = 10
     # sales_order_items = Array.new
     @bill_items.each do |bill_item|
-      rows << %Q["Item",10,"#{bill_item.name}","#{bill_item.description}",#{bill_item.quantity},"#{bill_item.uom}",#{bill_item.price}]
+      if bill_item.fishbowl_status != 'error'
+        rows << %Q["Item",10,"#{bill_item.name}","#{bill_item.description}",#{bill_item.quantity},"#{bill_item.uom}",#{bill_item.price}]
+      end
     end
     # sales_order[:items] = sales_order_items
     sales_order[:rows] = rows

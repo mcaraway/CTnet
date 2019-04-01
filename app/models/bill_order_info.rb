@@ -1,6 +1,6 @@
 class BillOrderInfo
-  attr_accessor :order_number, :order_date, :status, :shipment_cost, :name, :sku, :tracking
-	def initialize(order_number, order_date, status, shipment_cost, name, sku, tracking)
+  attr_accessor :order_number, :order_date, :status, :shipment_cost, :name, :sku, :tracking, :fishbowl_status
+	def initialize(order_number, order_date, status, shipment_cost, name, sku, tracking, fishbowl_status)
 	  @order_number = order_number
 	  @order_date = order_date
 	  @status = status
@@ -8,6 +8,7 @@ class BillOrderInfo
 	  @name = name
 	  @sku = sku
 	  @tracking = tracking
+	  @fishbowl_status = fishbowl_status
 	end
 	
   class << self	
@@ -23,10 +24,8 @@ class BillOrderInfo
   	  bill_order_infos = Array.new
   	  orders.each do |order| 
   	    product = products.detect{|x| x.sku == order.sku}
-        if !product.nil? then
-    	    bill_order_infos << BillOrderInfo.new(order.OrderNumber, order.OrderDate, order.LocalStatus, order.ShipmentCost, 
-    	     product.num, product.sku, order.TrackingNumber)
-    	  end
+        bill_order_infos << BillOrderInfo.new(order.OrderNumber, order.OrderDate, order.LocalStatus, order.ShipmentCost, 
+    	     (product.nil? ? 'error' : product.num), (product.nil? ? order.sku : product.sku), order.TrackingNumber, (product.nil? ? 'error' : 'exists'))
   	  end
   	  bill_order_infos
   	end

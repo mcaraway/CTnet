@@ -70,29 +70,37 @@ class Order < ShipworksDbBase
       }
     end
     
-    def items_shipped_by_date(start_date, end_date)
-      rows = Rails.cache.fetch("items_shipped_by_date") { 
-         Order.select("CONVERT(DATE,DATEADD(day, DATEDIFF(day, 0, OrderDate) /7*7, 0),101) as week, [OrderItem].sku, sum([OrderItem].quantity) as quantity")
+    def items_shipped_by_date(store_id, start_date, end_date)
+      rows = Order.select("CONVERT(DATE,DATEADD(day, DATEDIFF(day, 0, OrderDate) /7*7, 0),101) as week, [OrderItem].sku, sum([OrderItem].quantity) as quantity")
          .joins("JOIN [OrderItem] on [order].OrderID = [OrderItem].OrderID")
          .joins("JOIN [Store] on [order].StoreID = [Store].StoreID")
           .where("[order].OrderDate >= ? and [order].OrderDate <= ?", start_date, end_date)
-          .where("StoreName='Flat Tummy Tea'")
-          .where("[OrderItem].sku in ('FT002','FT004','FT005','FT005-A','FT006V','FT006M','FT007V','FT007M','FT009M-B','FT008M-B','FT010M-B','FT011M-B','FT009V-B','FT008V-B','FT010V-B','FT011V-B')")
+          .where("[Store].StoreID=?", store_id)
           .group("CONVERT(DATE,DATEADD(day, DATEDIFF(day, 0, OrderDate) /7*7, 0),101), [OrderItem].sku")
           .order("CONVERT(DATE,DATEADD(day, DATEDIFF(day, 0, OrderDate) /7*7, 0),101), [OrderItem].sku")
-      }
     end
     
-    def orders_by_week(start_date, end_date)
-      rows = Rails.cache.fetch("orders_by_week") { 
-         Order.select("CONVERT(DATE,DATEADD(day, DATEDIFF(day, 0, OrderDate) /7*7, 0),101) as week, sum([OrderItem].quantity) as quantity")
+    def items_by_week(store_id, start_date, end_date)
+      puts "store_id = "
+      puts store_id
+      rows = Order.select("CONVERT(DATE,DATEADD(day, DATEDIFF(day, 0, OrderDate) /7*7, 0),101) as week, sum([OrderItem].quantity) as quantity")
          .joins("JOIN [OrderItem] on [order].OrderID = [OrderItem].OrderID")
          .joins("JOIN [Store] on [order].StoreID = [Store].StoreID")
           .where("[order].OrderDate >= ? and [order].OrderDate <= ?", start_date, end_date)
-          .where("StoreName='Flat Tummy Tea'")
+          .where("[Store].StoreID=?", store_id)
           .group("CONVERT(DATE,DATEADD(day, DATEDIFF(day, 0, OrderDate) /7*7, 0),101)")
           .order("CONVERT(DATE,DATEADD(day, DATEDIFF(day, 0, OrderDate) /7*7, 0),101)")
-      }
+    end
+    
+    def orders_by_week(store_id, start_date, end_date)
+      puts "store_id = "
+      puts store_id
+      rows = Order.select("CONVERT(DATE,DATEADD(day, DATEDIFF(day, 0, OrderDate) /7*7, 0),101) as week, count([Order].OrderNumber) as quantity")
+         .joins("JOIN [Store] on [order].StoreID = [Store].StoreID")
+          .where("[order].OrderDate >= ? and [order].OrderDate <= ?", start_date, end_date)
+          .where("[Store].StoreID=?", store_id)
+          .group("CONVERT(DATE,DATEADD(day, DATEDIFF(day, 0, OrderDate) /7*7, 0),101)")
+          .order("CONVERT(DATE,DATEADD(day, DATEDIFF(day, 0, OrderDate) /7*7, 0),101)")
     end
     
     def shipped_by_range_count(store_id, start_date, end_date)

@@ -2,7 +2,10 @@ h1 Editing fulfillment_bill
 
 == render 'form'
 
+
 = link_to 'Show', @fulfillment_bill
 '|
 = link_to 'Back', fulfillment_bills_path
+<br>
 
+= link_to 'Destroy', @fulfillment_bill, data: { confirm: 'Are you sure?' }, method: :delete
