@@ -1,0 +1,12 @@
+= form_for @production_line do |f|
+  - if @production_line.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@production_line.errors.count, "error")} prohibited this production_line from being saved:"
+      ul
+        - @production_line.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .actions = f.submit

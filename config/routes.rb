@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :production_events
+  resources :production_lines
   resources :sales_orders
   resources :estimates
   resources :restconnections
@@ -17,6 +19,10 @@ Rails.application.routes.draw do
   get '/refresh_bill/:id', to: 'fulfillment_bills#refresh', as: 'refresh_bill'
   get '/create_sales_order/:id', to: 'fulfillment_bills#create_sales_order', as: 'create_sales_order'
   get '/create_xlsx/:id', to: 'fulfillment_bills#create_xlsx', as: 'create_xlsx'
+  get '/production_data', to: 'production_lines#data', as: 'production_data'
+  post '/production_events/build/:id', to: 'production_events#build', as: 'production_events_build'
+  put '/production_events/update_ajax/:id', to: 'production_events#update_ajax', as: 'production_events_update_ajax'
+  get '/schedules', to: 'production_events#schedules', as: 'schedules'
   
   resources :shipments
   resources :stores

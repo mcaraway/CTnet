@@ -1,0 +1,38 @@
+<div class="navbar-collapse" id="navbarSupportedContent">
+	<ul class="navbar-nav mr-auto">
+		<li class="nav-item active">
+			<a class="nav-link" href="<%= fulfillment_bills_path %>"><i class="fa fa-fw fa-money"></i> Billing</a>
+		</li>
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="#" id="productionDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-building"></i>Production</a>
+			<div class="dropdown-menu bg-dark" aria-labelledby="productionDropdown">
+				<a class="nav-link" href="<%= schedules_path %>">Schedules</a>
+				<div class="dropdown-divider"></div>
+				<a class="nav-link" href="<%= production_events_path %>">Events</a>
+				<a class="nav-link" href="<%= production_lines_path %>">Lines</a>
+			</div>
+		</li>
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="#" id="ordersDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-bar-chart-o"></i>Orders</a>
+			<div class="dropdown-menu bg-dark" aria-labelledby="ordersDropdown">
+				<a class="nav-link" class="dropdown-item"href="<%= orders_path %>">Order List</a>
+				<a class="nav-link" class="dropdown-item"href="#">Daily Chart</a>
+			</div>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="<%= parts_path %>"><i class="fa fa-fw fa-table"></i> Parts</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="<%= manufacturing_orders_path %>"><i class="fa fa-fw fa-table"></i> Manufacturing Orders</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="<%= stores_path %>"><i class="fa fa-fw fa-building"></i> Stores</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="<%= estimates_path %>"><i class="fa fa-fw fa-simplybuilt"></i> Estimates</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="/app_settings"><i class="fa fa-fw fa-cog"></i> Settings</a>
+		</li>
+	</ul>
+</div>

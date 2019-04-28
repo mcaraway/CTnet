@@ -65,6 +65,8 @@ GEM
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
     builder (3.2.3)
+    chaplinks-library-timeline (2.9.0)
+      jquery-rails
     chartkick (3.0.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -229,6 +231,7 @@ DEPENDENCIES
   bootstrap-datepicker-rails
   bootstrap-sass (= 3.3.7)
   byebug
+  chaplinks-library-timeline
   chartkick
   coffee-rails (~> 4.2)
   devise

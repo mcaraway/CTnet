@@ -1,0 +1,1 @@
+json.extract! mo, :id, :monum, :dateScheduled, :status

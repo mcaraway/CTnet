@@ -1,0 +1,75 @@
+// Place all the styles related to the production_events controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.vis-item.Line0{
+    background-color: LightGrey;
+    border-color: DarkGrey;
+  
+}
+.vis-item.Line1 {
+    background-color: MediumAquamarine;
+    border-color: MediumSeaGreen;
+}
+
+.vis-item-selected.Line1 {
+    background-color: yellow;
+    color: black;
+}
+
+/* create a custom sized dot at the bottom of the red item */
+.vis-item.Line2 {
+    background-color: DarkTurquoise;
+    border-color: CadetBlue;
+    color: black;
+}
+
+.vis-item-selected.Line2 {
+    background-color: yellow;
+    color: black;
+}
+
+.vis-item.Line3 {
+    background-color: Khaki;
+    border-color: DarkKhaki;
+    color: black;
+}
+
+.vis-item-selected.Line3 {
+    background-color: yellow;
+    color: black;
+}
+
+.vis-item.Line4 {
+    background-color: SandyBrown;
+    border-color: Chocolate;
+    color: black;
+}
+.vis-item.Line5 {
+    background-color: MediumSlateBlue;
+    border-color: DarkSlateBlue;
+    color: black;
+}
+.vis-item.Line6 {
+    background-color: Coral;
+    border-color: OrangeRed;
+    color: black;
+}
+.vis-item.Line7 {
+    background-color: PaleVioletRed;
+    border-color: MediumVoiletRed;
+    color: black;
+}
+/* alternating column backgrounds */
+.vis-time-axis .grid.vis-odd {
+  background: #f5f5f5;
+}
+
+/* gray background in weekends, white text color */
+.vis-time-axis .vis-grid.vis-saturday,
+.vis-time-axis .vis-grid.vis-sunday {
+  background: LightSteelBlue;
+}
+.vis-time-axis .vis-text.vis-saturday,
+.vis-time-axis .vis-text.vis-sunday {
+  color: white;
+}

@@ -1,0 +1,28 @@
+h1 Production Schedule
+
+div.row
+	div.col-sm-12
+		div id="info"
+		div.fa-3x id="loadingDiv" 
+			i class="fa fa-spinner fa-spin" 
+		div id="mytimeline"
+
+javascript:
+	$('#loadingDiv')
+	    .hide();
+    var dataSourceUrl = "#{request.protocol}#{request.host_with_port}/production_events.json";
+    var updateUrl ="#{request.protocol}#{request.host_with_port}/production_events";
+    var queryWrapper = null;
+    var timeline = null;
+    var data = new vis.DataSet();
+
+	function drawVisualization() {		
+		queryWrapper = new TimelineQueryWrapper(dataSourceUrl, updateUrl, #{@production_lines.to_json.html_safe});
+		queryWrapper.sendAndDraw();
+	}
+	$( document ).ready(function() {
+	    drawVisualization();
+	    var container = document.getElementById('mytimeline');
+	    
+	});
+

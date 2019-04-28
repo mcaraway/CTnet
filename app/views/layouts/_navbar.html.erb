@@ -1,42 +1,37 @@
 <!-- Navigation -->
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/">CTnet</a>
-    </div>
-    <!-- Top Menu Items -->
-    <ul class="nav navbar-right top-nav">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" role="navigation">
+	<!-- Brand and toggle get grouped for better mobile display -->
+	<a class="navbar-brand" href="/">CTnet</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-ex1-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<!-- Top Menu Items -->
+	<% if !current_user.nil? && current_user.customer? %>
+	<%= render :partial =>'layouts/customer_sidenav' %>
+	<% elsif !current_user.nil? %>
+	<%= render :partial =>'layouts/user_navbar' %>
+	<% end %>
+	<div class="collapse navbar-collapse float-right" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto">
 
-		<% if user_signed_in? %>       
-		  </li>
-		   	
-	        <li class="dropdown">
-	            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <%= current_user.name %> <b class="caret"></b></a>
-	            <ul class="dropdown-menu">
-	                <li>
-	                    <a href="<%= edit_user_path(current_user.id) %>"><i class="fa fa-fw fa-user"></i> Profile</a>
-	                </li>
-	                <% if current_user.admin? %>
-	                <li>
-	                    <a href="<%= users_path %>"><i class="fa fa-fw fa-users"></i> Edit Users</a>
-	                </li>
-	                <% end %>
-	                <li class="divider"></li>
-	                <li>
-	                    <a href="<%= destroy_user_session_path(method: :delete) %>"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
-	                </li>
-	            </ul>
-	        </li>
-		<% else %>
-		  <li>
-		  <%= link_to('Login', new_user_session_path)  %>  
-		  </li>
-		<% end %>   
-    </ul>
+			<% if user_signed_in? %> 
+			<li class="nav-item dropdown">
+
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> <%= current_user.name %></a>
+				<div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+					<a class="nav-link" href="<%= edit_user_path(current_user.id) %>"><i class="fa fa-fw fa-user"></i> Profile</a>
+					<% if current_user.admin? %>
+					<a class="dropdown-item"  href="<%= users_path %>"><i class="fa fa-fw fa-users"></i> Edit Users</a>
+					<% end %>
+					<div class="dropdown-divider"></div>
+					<a class="nav-link" href="<%= destroy_user_session_path(method: :delete) %>"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+				</div>
+			</li>
+			<% else %>
+			<li>
+				<%= link_to('Login', new_user_session_path)  %>
+			</li>
+			<% end %>
+		</ul>
+	</div>
 </nav>

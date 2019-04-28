@@ -19,4 +19,5 @@
 //= require bootstrap-datepicker
 //= require Chart.bundle
 //= require chartkick
+//= require tablequerywrapper
 //= require_tree .

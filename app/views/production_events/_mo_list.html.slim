@@ -1,0 +1,35 @@
+div.scrollbar.scrollbar-primary 
+	div.overflow-auto style='max-height: 300px'
+		ul.list-group
+		  - @mos.each do |mo|
+		    li.list-group-item id='#{mo.id}' onload="$( '##{mo.id}' ).draggable();"
+		      span id='monum#{mo.id}'
+		      	= mo.monum 
+		      br
+		      span id='modate#{mo.id}'
+		      	=> mo.dateScheduled.in_time_zone('Eastern Time (US & Canada)').strftime('%Y-%m-%dT00:00:00.000Z') 
+		      br
+		      span id='mostatus#{mo.id}' class='#{mo.status}' 
+		        => mo.status
+		      span id='moid#{mo.id}' class='hidden' #{mo.id}
+		      span style='float:right' = link_to 'Create', production_events_build_path(mo.id), method: :post
+      	
+javascript:
+	var addItem = function(id) {
+		var listItem = document.getElementById(id);
+		var startItem = document.getElementById('modate'+id);
+		var contentItem = document.getElementById('monum'+id);
+		startDate = new Date(startItem.innerText);
+		endDate = new Date (startDate + 1*24*60*60*1000);
+		item = {
+			id: id,
+			start: startDate,
+			end: endDate,
+			content: contentItem.innerText,
+			group: 1,
+			editable: true,
+			className: 'Line1'
+		};
+		
+		queryWrapper.addItem (item);
+	};

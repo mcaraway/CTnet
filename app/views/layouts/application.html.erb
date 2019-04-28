@@ -6,17 +6,17 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css">
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
 
   <body>
-  	<div id="wrapper">
 	    <%= render :partial =>'layouts/navbar' %>
-	    <% if !current_user.nil? %>
-	    <%= render :partial =>'layouts/sidenav' %>
-	    <% end %>
 	    <div id="page-wrapper">
             <div class="container-fluid">
 			  	<p class="notice"><%= notice %></p>
@@ -24,6 +24,5 @@
 			    <%= yield %>
 	    	</div>
 	    </div>
-    </div>
   </body>
 </html>

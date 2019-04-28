@@ -13,7 +13,6 @@
  *= require_tree .
  *= require_self
  *= require cttheme/bootstrap
- *= require cttheme/sb-admin
  *= require cttheme/plugins/morris
  *= require bootstrap-datepicker
  */

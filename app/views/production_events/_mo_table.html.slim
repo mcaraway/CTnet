@@ -1,0 +1,27 @@
+h2 Manufacturing Orders
+br
+table class="table table-bordered table-hover table-striped"
+  thead
+    tr
+      th
+        | Date Scheduled
+      th
+        | MO Num
+      th
+        | Customer      
+      th
+        | Status
+      th
+        | Action
+  tbody
+    - @mos.each do |mo|
+      tr 
+        td
+          = mo.dateScheduled.in_time_zone('Eastern Time (US & Canada)').strftime('%B %d, %y')
+        td
+          = mo.monum
+        td
+          = mo.cust_name
+        td class='#{mo.status}'
+          = mo.status
+        td = link_to 'Create Event', production_events_build_path(mo.id), method: :post

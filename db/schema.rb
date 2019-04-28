@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180711013945) do
+ActiveRecord::Schema.define(version: 20190418214316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,24 @@ ActiveRecord::Schema.define(version: 20180711013945) do
     t.string "custom_shipping_charge_sql"
     t.string "custom_order_list_sql"
     t.boolean "use_custom_sql", default: false
+  end
+
+  create_table "production_events", force: :cascade do |t|
+    t.datetime "start"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "end"
+    t.string "content"
+    t.string "group"
+    t.string "className"
+    t.string "monum"
+    t.integer "moid"
+  end
+
+  create_table "production_lines", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "restconnections", id: :serial, force: :cascade do |t|

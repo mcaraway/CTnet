@@ -1,0 +1,1 @@
+json.extract! production_event, :id, :content, :start, :end, :group, :className

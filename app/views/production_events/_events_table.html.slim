@@ -1,0 +1,33 @@
+h2 Events
+br
+table class="table table-bordered table-hover table-striped"
+  thead
+    tr
+      th
+        | Id
+      th
+        | Start
+      th
+        | End
+      th
+        | Content
+      th
+        | Line
+      th 
+        | Action
+  tbody
+    - @production_events.each do |pe|
+      tr 
+        td
+          = link_to pe.id, pe
+        td
+          = pe.start.in_time_zone('Eastern Time (US & Canada)').strftime('%B %d, %y')
+        td
+          = pe.end.in_time_zone('Eastern Time (US & Canada)').strftime('%B %d, %y') unless pe.end.nil?
+        td
+          = pe.content
+        td
+          = pe.group
+        td
+          = link_to 'Edit', edit_production_event_path(pe)
+          =< link_to 'Delete', pe, data: { confirm: 'Are you sure?' }, method: :delete

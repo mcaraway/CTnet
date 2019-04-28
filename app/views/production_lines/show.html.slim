@@ -1,0 +1,13 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @production_line.name
+  
+
+= link_to 'New Production event', new_production_event_path
+<br>
+
+= link_to 'Edit', edit_production_line_path(@production_line)
+'|
+= link_to 'Back', production_lines_path

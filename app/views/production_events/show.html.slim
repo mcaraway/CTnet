@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong Content:
+  = @production_event.content
+p
+  strong Start:
+  = @production_event.start
+p
+  strong End:
+  = @production_event.end
+p
+  strong Group:
+  = @production_event.group
+p
+  strong Class:
+  = @production_event.className
+
+= link_to 'Edit', edit_production_event_path(@production_event)
+'|
+= link_to 'Back', production_events_path
