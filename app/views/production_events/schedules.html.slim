@@ -1,6 +1,12 @@
 h1 Production Schedule
 
 div.row
+	div.col-sm-9
+	div.col.sm-3
+		div.input-group.mb-
+			input id='search' class='form-control'
+			div.input-group-append
+				button.btn.btn-primary.btn-sm id='searchBtn' type="button" Search
 	div.col-sm-12
 		div id="info"
 		div.fa-3x id="loadingDiv" 
@@ -13,16 +19,21 @@ javascript:
     var dataSourceUrl = "#{request.protocol}#{request.host_with_port}/production_events.json";
     var updateUrl ="#{request.protocol}#{request.host_with_port}/production_events";
     var queryWrapper = null;
-    var timeline = null;
+    var timeline = null;	
+    
     var data = new vis.DataSet();
+    $('#searchBtn').on('click', function() {
+    	searchTerms = $('#search').val();
+    	queryWrapper.find(searchTerms);
+    });
 
 	function drawVisualization() {		
 		queryWrapper = new TimelineQueryWrapper(dataSourceUrl, updateUrl, #{@production_lines.to_json.html_safe});
 		queryWrapper.sendAndDraw();
-	}
+	};
 	$( document ).ready(function() {
-	    drawVisualization();
 	    var container = document.getElementById('mytimeline');
+	    drawVisualization();
 	    
 	});
 

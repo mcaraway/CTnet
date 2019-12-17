@@ -54,11 +54,7 @@ var TimelineQueryWrapper = function(dataSourceUrl, updateUrl, lines) {
 		showMajorLabels : true,
 		selectable : true,
 		orientation : 'top',
-		timeAxis : {
-			scale : 'day',
-			step : 1,
-		stackSubgroups : true
-		},
+		stackSubgroups : true,
 
 		onMove : function(item, callback) {
 			var currentItem = item;
@@ -82,7 +78,7 @@ var TimelineQueryWrapper = function(dataSourceUrl, updateUrl, lines) {
 							end : currentItem.end,
 							group : currentItem.group,
 							className : currentItem.className};
-						dataSet.remove (currentItem.id)
+						dataSet.remove (currentItem.id);
 						dataSet.add(newItem);
 					}
 				});
@@ -135,6 +131,16 @@ TimelineQueryWrapper.prototype.addItem = function(item) {
 	// timeline.redraw();
 };
 
+TimelineQueryWrapper.prototype.find = function(searchTerms) {
+	items = data.get({fields: ['id', 'content'],
+		filter: function(item) {
+			return (item.content.includes(searchTerms));
+		}
+	});
+	if (items.length > 0) {
+		timeline.focus(items[0].id);
+	}
+};
 /**
  * Sends the query and upon its return draws the Table visualization in the
  * container. If the query refresh interval is set then the visualization will
@@ -181,7 +187,7 @@ TimelineQueryWrapper.draw = function(dataJson, updateUrl) {
 				id : item.id,
 				content : item.monum,
 				start : new Date(item.dateScheduled),
-				end : new Date(1 * 24 * 60 * 60 * 1000 + (new Date(item.dateScheduled)).valueOf()),
+				end : new Date(23 * 60 * 60 * 1000 + (new Date(item.dateScheduled)).valueOf()),
 				group : 0,
 				className : "Line0"
 			});
