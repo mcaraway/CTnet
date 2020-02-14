@@ -1,0 +1,14 @@
+= form_for @option_group do |f|
+  - if @option_group.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@option_group.errors.count, "error")} prohibited this option_group from being saved:"
+      ul
+        - @option_group.errors.full_messages.each do |message|
+          li = message
+  div.row  		
+    div.col-sm-2
+      .field
+        = f.label :name 
+    div.col-sm-10
+        =< f.text_field :name
+  .actions = f.submit

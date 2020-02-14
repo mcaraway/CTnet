@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :estimate_items
+  resources :option_groups
   resources :production_events
   resources :production_lines
   resources :sales_orders

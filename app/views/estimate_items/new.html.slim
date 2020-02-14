@@ -1,0 +1,31 @@
+h1 New estimate_item
+
+.row
+	.col-sm-4
+	  strong What kind of item?
+	.col-sm-8
+	  select id="itemTypeSelect" name="itemType"
+		option[value="select" name="simple" selected="selected"] select
+		option[value="simple" name="simple"] Simple Item
+		option[value="composite" name="composite"] Composite Item 
+  
+.row id="simple-form" style="display: none;"
+	.col-sm-12
+		== render 'simple_form'
+.row id="composite-form" style="display: none;"
+	.col-sm-12
+		== render 'composite_form'
+
+= link_to 'Back', estimate_items_path
+
+
+javascript:
+  $('#itemTypeSelect').change(function(){
+  	if (this.value == 'simple') {
+  		$('#simple-form').show();
+  		$('#composite-form').hide();
+  	} else if (this.value == 'composite') {
+  		$('#simple-form').hide();
+  		$('#composite-form').show();
+  	}
+  });

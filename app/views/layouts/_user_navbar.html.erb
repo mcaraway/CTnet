@@ -28,8 +28,13 @@
 		<li class="nav-item">
 			<a class="nav-link" href="<%= stores_path %>"><i class="fa fa-fw fa-building"></i> Stores</a>
 		</li>
-		<li class="nav-item">
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="#" id="ordersDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-bar-chart-o"></i>Estimates</a>
+			<div class="dropdown-menu bg-dark" aria-labelledby="ordersDropdown">
 			<a class="nav-link" href="<%= estimates_path %>"><i class="fa fa-fw fa-simplybuilt"></i> Estimates</a>
+			<a class="nav-link" href="<%= estimate_items_path %>"><i class="fa fa-fw fa-simplybuilt"></i> Estimates Items</a>
+			<a class="nav-link" href="<%= option_groups_path %>"><i class="fa fa-fw fa-simplybuilt"></i> Option Groups</a>
+			</div>
 		</li>
 		<li class="nav-item">
 			<a class="nav-link" href="/app_settings"><i class="fa fa-fw fa-cog"></i> Settings</a>

@@ -15,5 +15,6 @@
  *= require cttheme/bootstrap
  *= require cttheme/plugins/morris
  *= require bootstrap-datepicker
+ *= require jquery-ui
  */
 

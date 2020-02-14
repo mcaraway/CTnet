@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190418214316) do
+ActiveRecord::Schema.define(version: 20191219185041) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,22 @@ ActiveRecord::Schema.define(version: 20190418214316) do
     t.string "password"
     t.string "database"
     t.string "encoding"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "estimate_item_descendants", force: :cascade do |t|
+    t.integer "parent_id"
+    t.integer "child_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "estimate_items", force: :cascade do |t|
+    t.string "name"
+    t.integer "part_id"
+    t.float "amount"
+    t.integer "option_group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -58,6 +74,12 @@ ActiveRecord::Schema.define(version: 20190418214316) do
     t.string "custom_shipping_charge_sql"
     t.string "custom_order_list_sql"
     t.boolean "use_custom_sql", default: false
+  end
+
+  create_table "option_groups", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "production_events", force: :cascade do |t|

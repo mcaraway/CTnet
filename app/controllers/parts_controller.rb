@@ -5,6 +5,14 @@ class PartsController < ApplicationController
   # GET /parts.json
   def index
     @parts = Part.paginate(:page => params[:page], :per_page => 50)
+    
+    respond_to do |format|
+      format.html { @parts }
+      format.json do
+        @parts = Part.search(params[:term])
+         render json: @parts.map(&:num)
+       end
+     end
   end
 
   # GET /parts/1

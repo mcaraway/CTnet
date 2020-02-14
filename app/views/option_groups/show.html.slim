@@ -1,0 +1,9 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @option_group.name
+
+= link_to 'Edit', edit_option_group_path(@option_group)
+'|
+= link_to 'Back', option_groups_path

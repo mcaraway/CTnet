@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @estimate_item.name
+p
+  strong Part:
+  = @estimate_item.part_name
+p
+  strong Amount:
+  = @estimate_item.amount
+p
+  strong Option group:
+  = @estimate_item.option_group_name
+
+= link_to 'Edit', edit_estimate_item_path(@estimate_item)
+'|
+= link_to 'Back', estimate_items_path

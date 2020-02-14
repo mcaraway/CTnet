@@ -1,0 +1,29 @@
+= form_for @estimate_item do |f|
+  - if @estimate_item.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@estimate_item.errors.count, "error")} prohibited this estimate_item from being saved:"
+      ul
+        - @estimate_item.errors.full_messages.each do |message|
+          li = message
+
+  .row
+    .col-sm-2
+      = f.label :name
+    .col-sm-4
+      =< f.text_field :name
+  .row
+    .col-sm-2
+      = f.label :part_id
+    .col-sm-4
+      =< f.text_field :part_name, data: {autocomplete_source: parts_path}
+  .row
+    .col-sm-2
+      = f.label :amount
+    .col-sm-4
+      =< f.text_field :amount
+  .row
+    .col-sm-2
+      = f.label "Option Group"
+    .col-sm-4
+      =< f.text_field :option_group_name, data: {autocomplete_source: option_groups_path}
+  .actions = f.submit

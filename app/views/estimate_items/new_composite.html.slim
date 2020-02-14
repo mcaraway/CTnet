@@ -1,0 +1,19 @@
+h1 New estimate_item
+  
+.row id="composite-form"
+	.col-sm-12
+		== render 'composite_form'
+
+= link_to 'Back', estimate_items_path
+
+
+javascript:
+  $('#itemTypeSelect').change(function(){
+  	if (this.value == 'simple') {
+  		$('#simple-form').show();
+  		$('#composite-form').hide();
+  	} else if (this.value == 'composite') {
+  		$('#simple-form').hide();
+  		$('#composite-form').show();
+  	}
+  });
